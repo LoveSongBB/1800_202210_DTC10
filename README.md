@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-	
+* Hi my name is Bryan. I'm excited about this project because it's fun!	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
