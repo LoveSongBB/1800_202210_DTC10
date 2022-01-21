@@ -6,7 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Changwhi Oh. I am excited about this project 	
+* Hi my name is Evon. I'm excited about this project because ...
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
