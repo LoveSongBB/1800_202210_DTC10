@@ -64,22 +64,7 @@
 <body>
 
     <!-- Navbar -->
-    <header class="p-3 bg-dark text-white">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap" />
-                    </svg>
-                </a>
-
-                <h1>Logo Placeholder</h1>
-
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                </ul>
-            </div>
-        </div>
-    </header>
+   <nav id="navbarPlaceholder"></nav>
 
     <!-- Changwhi's Sign up page starts -->
 
@@ -116,8 +101,6 @@
             </div>
           </div>
 
-
-          
           <div class="col-12">
             <label for="address" class="form-label">Password</label>
             <input type="text" class="form-control" id="address" placeholder="At least 8 characters" required>
@@ -150,7 +133,7 @@
             <select class="form-select" id="country" required>
               <option value="" disabled selected>Choose..</option>
               <option value="">A</option>
-           
+
             </select>
             <div class="invalid-feedback">
               Please select a valid year.
@@ -191,8 +174,6 @@
 
         <hr class="my-4">
 
-        
-
         <div class="col-12">
           <label for="country" class="form-label">Gender</label>
           <select class="form-select" id="country"  required>
@@ -202,8 +183,7 @@
             <option value="">Female</option>
             <option value="">Something</option>
             <option value="">N/A</option>
-            
-         
+
           </select>
         </div>
 
@@ -211,14 +191,11 @@
           <p style="margin: 50px;"></p>
         </div>
 
-        
-
-
         <div class="row gy-3">
           <div class="col-md-6">
-            <button class="w-100 btn btn-outline-secondary btn-lg" onclick="location.href='login.html'" type="button">Cancel</button>
-           
-            
+            <button class="w-100 btn btn-outline-secondary btn-lg" style="background-color: #fff;" onclick="location.href='login.html'" type="button">Cancel</button>
+
+
           </div>
 
           <div class="col-md-6">
@@ -230,28 +207,10 @@
         </div>
       </div>
     </div>
-    
-
-    
   </div>
 
-
-    
-
-
     <!-- footer -->
-    <div class="container">
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-            <p class="text-center text-muted">© 2022 Team 10, Inc</p>
-        </footer>
-    </div>
+    <nav id="footerPlaceholder"></nav>
 
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/authentication.js"></script>
