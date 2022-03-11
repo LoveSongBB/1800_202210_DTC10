@@ -1,11 +1,20 @@
-/* Undecided colors - vote on Friday March 4th */
-
 
 .header-color {
 
     background-color: #3DB2FF;
 }
 
+#logo-text{
+
+    color: #fff;
+    text-decoration: none;
+}
+
+#logo-text:hover{
+
+    color: #fff;
+    text-decoration: none;
+}
 .button-color {
 
     background-color: #ED2939;
