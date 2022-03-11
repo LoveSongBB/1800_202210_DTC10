@@ -4,6 +4,18 @@
     background-color: #3DB2FF;
 }
 
+#logo-text-logged{
+
+    color: #fff;
+    text-decoration: none;
+}
+
+#logo-text-logged:hover{
+
+    color: #fff;
+    text-decoration: none;
+}
+
 #logo-text{
 
     color: #fff;
@@ -15,6 +27,7 @@
     color: #fff;
     text-decoration: none;
 }
+
 .button-color {
 
     background-color: #ED2939;
