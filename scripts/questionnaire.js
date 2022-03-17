@@ -15,17 +15,22 @@ function getUserAnswerList() {
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            var currentUser = db.collection("users").doc(user.uid)
+            // var currentUser = db.collection("users").doc(user.uid)
             //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    db.collection("users").add({
-                        answerList: getUserAnswerListValues()
-                    }).then(() => {
-                        // window.location.href = "main.html";
-                        console.log("then() performed")
-                    })
-                })
+            // currentUser.get().then(userDoc => {
+            //     db.collection("users").add({
+            //         answerList: getUserAnswerListValues()
+            //     }).then(() => {
+            //         console.log("then() performed");
+            //         // window.location.href = "main.html";
+            //     })
+            // })
+            db.collection("users").doc(user.uid).update({
+                answerList: getUserAnswerListValues()
+            }).then(() => {
+                console.log("then() performed");
+                window.location.href = "main.html";
+            })
 
         } else {
             // No user is signed in.
