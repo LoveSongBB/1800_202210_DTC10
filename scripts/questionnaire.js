@@ -8,23 +8,14 @@ function getUserAnswerListValues() {
     });
 
     console.log(values)
-    return `${values}`;
+    return values;
 }
 
 function getUserAnswerList() {
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            // var currentUser = db.collection("users").doc(user.uid)
-            //get the document for current user.
-            // currentUser.get().then(userDoc => {
-            //     db.collection("users").add({
-            //         answerList: getUserAnswerListValues()
-            //     }).then(() => {
-            //         console.log("then() performed");
-            //         // window.location.href = "main.html";
-            //     })
-            // })
+            // Append answerList to document of the user logged in.
             db.collection("users").doc(user.uid).update({
                 answerList: getUserAnswerListValues()
             }).then(() => {
@@ -33,7 +24,7 @@ function getUserAnswerList() {
             })
 
         } else {
-            // No user is signed in.
+            console.log("No user is signed in.")
         }
     });
 
