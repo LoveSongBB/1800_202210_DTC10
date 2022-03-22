@@ -1,43 +1,59 @@
 function matchUser() {
     var userMatchingAnswerListObject = {};
 
-    // Loop through users collection in firebase
-    db.collection("users").get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (user) {
-            // console.log(user.id, " => ", user.data().answerList);
-            userMatchingAnswerListObject[String(user.id)] = user.data().answerList;
-        });
-    });
+    var userMatchingAnswerListMap = new Map();
 
-    console.log(userMatchingAnswerListObject);
+    // firebase.auth().onAuthStateChanged(userLoggedIn => {
+    //     // Check if user is logged in.
+    //     if (userLoggedIn) {
+    //         // Loop through all the users in the "users" collection in firebase
+    //         const querySnapshot = await getDocs(db.collection("users"));
+    //         querySnapshot.forEach((user) => {
+    //             // doc.data() is never undefined for query doc snapshots
+    //             console.log(user.id, " => ", user.data().answerList);
+    //             // userMatchingAnswerListMap.set(string(user.id), user.data().answerList);
+    //         });
+    //     } else {
+    //         // No one is logged in.
+    //         console.log("No one is logged in");
+    //     }
+    // })
+
+    // Loop through users collection in firebase
+    // db.collection("users").get().then(function (querySnapshot) {
+    //     querySnapshot.forEach(function (user) {
+    //         // console.log(user.id, " => ", user.data().answerList);
+    //         userMatchingAnswerListObject[String(user.id)] = user.data().answerList;
+    //     });
+    // });
+
+    console.log(userMatchingAnswerListMap);
 
     // Loop through userMatchingAnswerListObject and compare the logged in users answerList with the other answerLists stored in firebase
-    var matchCounter = 0;
+    // var matchCounter = 0;
 
-    firebase.auth().onAuthStateChanged(user => {
-        // check if user is logged in.
-        if (user) {
-            console.log(`user.uid = ${user.uid}`);
-            // For some reason, the line below returns underfined. Don't know why.
-            // console.log(`userMatchingAnswerListObject[user.uid] = ${userMatchingAnswerListObject[String(user.uid)]}`); 
-            var loggedInUserAnswerList = userMatchingAnswerListObject[String(user.uid)];
-            console.log(`loggedInUserAnswerList = ${loggedInUserAnswerList}`);
-        } else {
-            // No one is logged in.
-            console.log("No user logged in");
-        }
-    })
+    // firebase.auth().onAuthStateChanged(user => {
+    //     // check if user is logged in.
+    //     if (user) {
+    //         console.log(`user.uid = ${user.uid}`);
+    //         // For some reason, the line below returns underfined. Don't know why.
+    //         // console.log(`userMatchingAnswerListObject[user.uid] = ${userMatchingAnswerListObject[String(user.uid)]}`); 
+    //         var loggedInUserAnswerList = userMatchingAnswerListObject[String(user.uid)];
+    //         console.log(`loggedInUserAnswerList = ${loggedInUserAnswerList}`);
+    //     } else {
+    //         // No one is logged in.
+    //         console.log("No user logged in");
+    //     }
+    // })
 
     // The code below regarding testObject is just a test. Doesn't really do anything.
-    testObject = {
-        a: [1, 2, 3],
-        b: [4, 5, 6],
-        c: [7, 8, 9]
-    }
+    testMap = new Map();
 
-    testObject['d'] = [10, 11, 12];
-    console.log(testObject);
-    console.log(`testObject['a'] = ${testObject['a']}`);
+    testMap.set('a', 1);
+    testMap.set('b', 2);
+    testMap.set('c', 3);
+    console.log(testMap);
+    console.log(`testMap.get('a') = ${testMap.get('a')}`);
 }
 
 function getAnswerList(userID) {
@@ -47,6 +63,21 @@ function getAnswerList(userID) {
         var userAnswerList = userDoc.data().answerList;
         console.log(`userAnswerList = ${userAnswerList}`);
     })
+}
+
+// Compares the logged in users answerList with another answerList and returns the integer amount of matched numbers they have.
+function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
+    var matchCounter = 0;
+    const array1 = ['1', '2', '3', '4'];
+    const array2 = ['3', '4', '5', '6'];
+
+    for (const element of yourUserAnswerList) {
+        if (otherUserAnswerList.includes(element)) {
+            matchCounter += 1;
+        }
+    }
+
+    console.log(matchCounter);
 }
 
 function setup() {
