@@ -68,8 +68,6 @@ function getAnswerList(userID) {
 // Compares the logged in users answerList with another answerList and returns the integer amount of matched numbers they have.
 function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
     var matchCounter = 0;
-    const array1 = ['1', '2', '3', '4'];
-    const array2 = ['3', '4', '5', '6'];
 
     for (const element of yourUserAnswerList) {
         if (otherUserAnswerList.includes(element)) {
