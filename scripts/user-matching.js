@@ -1,9 +1,10 @@
 var currentUser;
+var currentUserID;
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid); // Global
-        console.log(`currentUser = ${currentUser}`);
+        currentUserID = user.uid;
 
         // Add functions that you want to run when user is logged in
         matchUser();
@@ -51,9 +52,23 @@ function matchUser() {
             var userID = user.id;
 
             console.log(userID, " => ", userAnswerList);
-            userMatches[userID] = compareAnswerLists(['1', '3', '6', '10', '13'], userAnswerList);
+            
+            
+
+            // TODO Append data directly to firebase. Append to currentUser document.
+            if (currentUserID != userID) {
+                userMatches[userID] = compareAnswerLists(['1', '3', '6', '10', '13'], userAnswerList);
+                currentUser.update({
+                    userMatchesMap: userMatches
+                }).then(() => {
+                    console.log('then() performed');
+                })
+            }
+
         });
     });
+
+
 
     console.log(userMatches);
     console.log(Object.values(userMatches));
