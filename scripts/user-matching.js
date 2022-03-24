@@ -52,7 +52,7 @@ function matchUser() {
             var userID = user.id;
 
             // Append data directly to firebase. Append to currentUser document.
-            if (currentUserID != userID) {
+            if (currentUserID != userID && userAnswerList != undefined) {
                 getCurrentUserAnswerList()
                 userMatches[userID] = compareAnswerLists(currentUserAnswerList, userAnswerList);
                 currentUser.update({
