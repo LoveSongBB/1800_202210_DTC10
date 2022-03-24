@@ -15,17 +15,6 @@ firebase.auth().onAuthStateChanged(user => {
     }
 })
 
-// TODO get this function to work.
-function getCurrentUserAnswerList(currentUserParameter) {
-    db.collection("users").get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (user) {
-            if (currentUser == user) {
-                return user.data().answerList;
-            }
-        })
-    })
-}
-
 // Compares answerList of currentUser with answerList of every other user.
 // Return the integer amount of matches between the two arrays.
 function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
@@ -52,8 +41,6 @@ function matchUser() {
             var userID = user.id;
 
             console.log(userID, " => ", userAnswerList);
-            
-            
 
             // TODO Append data directly to firebase. Append to currentUser document.
             if (currentUserID != userID) {
@@ -68,20 +55,31 @@ function matchUser() {
         });
     });
 
-
-
-    console.log(userMatches);
-    console.log(Object.values(userMatches));
-
-    var testObject = {
-        'a': 1,
-        'b': 2
-    }
-
-    console.log(testObject);
     // TODO: obtain the max value in userMatches.
+    currentUser.get().then(userDoc => {
+        var currentUserMatchesMap = userDoc.data().userMatchesMap
+        var maxValue = 0;
+        var matchCounter = 0;
 
-    // TODO: get the first 5 userID's that equal to the max value in userMatches.
+        // How many user matches do you want? Set that value here.
+        var desiredMatchAmount = 1;
+
+        console.log(Object.values(currentUserMatchesMap))
+        Object.values(currentUserMatchesMap).forEach(value => {
+            if (value > maxValue) {
+                maxValue = value;
+            }
+        })
+
+        console.log(`maxValue = ${maxValue}`);
+
+        // Find the matched user.
+        for (const [key, value] of Object.entries(currentUserMatchesMap)) {
+            if (value == maxValue && matchCounter < desiredMatchAmount) {
+                console.log(`matchedUserID = ${key}`);
+            }
+        }
+    })
 }
 
 function setup() {
