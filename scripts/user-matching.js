@@ -1,5 +1,6 @@
 var currentUser;
 var currentUserID;
+var currentUserAnswerList;
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -8,7 +9,6 @@ firebase.auth().onAuthStateChanged(user => {
 
         // Add functions that you want to run when user is logged in
         matchUser();
-        // console.log(getCurrentUserAnswerList(currentUser));
     } else {
         console.log("No one is signed in.");
         window.location.href = '/login.html';
@@ -20,12 +20,24 @@ firebase.auth().onAuthStateChanged(user => {
 function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
     var matchCounter = 0;
 
-    for (const element of yourUserAnswerList) {
+    for (const element in yourUserAnswerList) {
         if (otherUserAnswerList.includes(element)) {
             matchCounter += 1;
         }
     }
     return matchCounter;
+}
+
+function getCurrentUserAnswerList() {
+    db.collection('users').get().then(querySnapshot => {
+        querySnapshot.forEach(user => {
+            var userId = user.id;
+
+            if (currentUserID == userId) {
+                currentUserAnswerList = user.data().answerList;
+            }
+        })
+    })
 }
 
 function matchUser() {
@@ -41,7 +53,8 @@ function matchUser() {
 
             // Append data directly to firebase. Append to currentUser document.
             if (currentUserID != userID) {
-                userMatches[userID] = compareAnswerLists(['1', '3', '6', '10', '13'], userAnswerList);
+                getCurrentUserAnswerList()
+                userMatches[userID] = compareAnswerLists(currentUserAnswerList, userAnswerList);
                 currentUser.update({
                     userMatchesMap: userMatches
                 })
@@ -58,7 +71,7 @@ function matchUser() {
 
 
         // How many user matches do you want? Set that value here.
-        var desiredMatchAmount = 3;
+        var desiredMatchAmount = 4;
 
         Object.values(currentUserMatchesMap).forEach(value => {
             if (value > maxValue) {
