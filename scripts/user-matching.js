@@ -25,65 +25,95 @@ function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
             matchCounter += 1;
         }
     }
-
-    console.log(`matchCounter = ${matchCounter}`);
     return matchCounter;
 }
 
 function matchUser() {
     var userMatches = {};
+    var matchedUserIDArray = [];
+    var matchedUserNameArray = [];
 
     // Loop through users collection in firebase
     db.collection("users").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (user) {
-            console.log(user);
             var userAnswerList = user.data().answerList
             var userID = user.id;
 
-            console.log(userID, " => ", userAnswerList);
-
-            // TODO Append data directly to firebase. Append to currentUser document.
+            // Append data directly to firebase. Append to currentUser document.
             if (currentUserID != userID) {
                 userMatches[userID] = compareAnswerLists(['1', '3', '6', '10', '13'], userAnswerList);
                 currentUser.update({
                     userMatchesMap: userMatches
-                }).then(() => {
-                    console.log('then() performed');
                 })
             }
 
         });
     });
 
-    // TODO: obtain the max value in userMatches.
+    // obtain the max value in userMatches.
     currentUser.get().then(userDoc => {
         var currentUserMatchesMap = userDoc.data().userMatchesMap
         var maxValue = 0;
         var matchCounter = 0;
 
-        // How many user matches do you want? Set that value here.
-        var desiredMatchAmount = 1;
 
-        console.log(Object.values(currentUserMatchesMap))
+        // How many user matches do you want? Set that value here.
+        var desiredMatchAmount = 3;
+
         Object.values(currentUserMatchesMap).forEach(value => {
             if (value > maxValue) {
                 maxValue = value;
             }
         })
 
-        console.log(`maxValue = ${maxValue}`);
-
-        // Find the matched user.
+        // Find the best matched user.
         for (const [key, value] of Object.entries(currentUserMatchesMap)) {
             if (value == maxValue && matchCounter < desiredMatchAmount) {
-                console.log(`matchedUserID = ${key}`);
+                matchedUserIDArray.push(key);
+                matchCounter += 1;
+            }
+        }
+
+        // if user still needs more matches, then find second best possible matches.
+        if (matchCounter < desiredMatchAmount) {
+            for (const [key, value] of Object.entries(currentUserMatchesMap)) {
+                if (value == maxValue - 1 && matchCounter < desiredMatchAmount) {
+                    matchedUserIDArray.push(key);
+                    matchCounter += 1;
+                }
+            }
+        }
+
+        // if user still needs more matches, then find third best possible matches.
+        if (matchCounter < desiredMatchAmount) {
+            for (const [key, value] of Object.entries(currentUserMatchesMap)) {
+                if (value == maxValue - 2 && matchCounter < desiredMatchAmount) {
+                    matchedUserIDArray.push(key);
+                    matchCounter += 1;
+                }
+            }
+        }
+
+        // if user still needs more matches, then find fourth best possible matches.
+        if (matchCounter < desiredMatchAmount) {
+            for (const [key, value] of Object.entries(currentUserMatchesMap)) {
+                if (value == maxValue - 3 && matchCounter < desiredMatchAmount) {
+                    matchedUserIDArray.push(key);
+                    matchCounter += 1;
+                }
             }
         }
     })
+
+
+    db.collection('users').get().then(querySnapshot => {
+        querySnapshot.forEach(user => {
+            var userId = user.id;
+
+            if (matchedUserIDArray.includes(userId)) {
+                // This is where you would dynamically populate cards containing the profiles of the users.
+                console.log(`You matched with ${user.data().name}`);
+            }
+        })
+    })
 }
-
-function setup() {
-
-}
-
-$(document).ready(setup);
