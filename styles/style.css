@@ -38,7 +38,7 @@
 
 body {
 
-    background-color: #FFEDDA;
+    background-color: #FFEDDA !important;
 }
 
 .footer {
