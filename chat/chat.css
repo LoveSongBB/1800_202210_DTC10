@@ -8,6 +8,11 @@ body{
 }
 
 
+#chat_container{
+    width: auto;
+}
+
+
 #center {
     margin: 0 auto;
     width: 90%;
