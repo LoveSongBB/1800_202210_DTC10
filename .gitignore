@@ -2,3 +2,4 @@
 *.logs
 node_modules/
 firebaseAPI_TEAM10.js
+test.html
