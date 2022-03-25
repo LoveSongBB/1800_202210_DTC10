@@ -2,7 +2,7 @@
 
 
 .header-color {
-
+    box-shadow: none !important;
     background-color: #3DB2FF;
 }
 
