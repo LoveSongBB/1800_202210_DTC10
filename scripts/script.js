@@ -139,7 +139,7 @@ function writeWebcamData() {
 }
 
 
-//     <!-- For Brithdate function -->
+//     <!-- For Birthdate function -->
 
 $(document).ready(function(){            
     var now = new Date();
