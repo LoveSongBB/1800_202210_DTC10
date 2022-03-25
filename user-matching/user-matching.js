@@ -8,10 +8,10 @@ firebase.auth().onAuthStateChanged(user => {
         currentUserID = user.uid;
 
         // Add functions that you want to run when user is logged in
-        matchUser();
+        matchUser();S
     } else {
         console.log("No one is signed in.");
-        window.location.href = '/login.html';
+        window.location.href = '../signup-login/signup-login.html';
     }
 })
 
