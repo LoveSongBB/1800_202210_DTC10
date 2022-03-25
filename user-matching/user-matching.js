@@ -1,6 +1,6 @@
 var currentUser;
 var currentUserID;
-var currentUserAnswerList;
+// var currentUserAnswerList;
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(user => {
         currentUserID = user.uid;
 
         // Add functions that you want to run when user is logged in
-        matchUser();S
+        matchUser();
     } else {
         console.log("No one is signed in.");
         window.location.href = '../signup-login/signup-login.html';
@@ -28,32 +28,34 @@ function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
     return matchCounter;
 }
 
-function getCurrentUserAnswerList() {
+
+function matchUser() {
+    var userMatches = {};
+    var matchedUserIDArray = [];
+    var currentUserAnswerList = []; 
+
+    // get currentUnswer answerlist and store it to currentUserAnswerList.
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
             var userId = user.id;
+            
 
             if (currentUserID == userId) {
                 currentUserAnswerList = user.data().answerList;
             }
         })
     })
-}
-
-function matchUser() {
-    var userMatches = {};
-    var matchedUserIDArray = [];
-    var matchedUserNameArray = [];
 
     // Loop through users collection in firebase
     db.collection("users").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (user) {
             var userAnswerList = user.data().answerList
             var userID = user.id;
-
+            
             // Append data directly to firebase. Append to currentUser document.
             if (currentUserID != userID && userAnswerList != undefined) {
-                getCurrentUserAnswerList()
+                
+                // console.log(currentUserAnswerList)
                 userMatches[userID] = compareAnswerLists(currentUserAnswerList, userAnswerList);
                 currentUser.update({
                     userMatchesMap: userMatches
@@ -118,6 +120,7 @@ function matchUser() {
         }
     })
 
+    console.log(userMatches);
 
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
