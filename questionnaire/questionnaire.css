@@ -1,0 +1,34 @@
+    #option_box {
+      margin: 0 auto;
+      width: 85%;
+    }
+
+    #right_side_option {
+      float: right;
+      width: 49.9%;
+      padding: 10px;
+
+
+    }
+
+    #left_side_option {
+      float: left;
+      width: 49.9%;
+      padding: 10px;
+
+
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
