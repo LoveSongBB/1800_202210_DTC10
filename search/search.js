@@ -56,20 +56,20 @@ $(document).ready(function(){
 
 
 function populateCardsDynamically() {
-    let hikeCardTemplate = document.getElementById("hikeCardTemplate");
-    let hikeCardGroup = document.getElementById("hikeCardGroup");
+    let userCardTemplate = document.getElementById("hikeCardTemplate");
+    let userCardGroup = document.getElementById("hikeCardGroup");
 
     db.collection("users")           //NEW LINE;  what do you want to sort by?
         .limit(10)                       //NEW LINE:  how many do you want to get?
         .get()
-        .then(allHikes => {
-            allHikes.forEach(doc => {
-                var hikeName = doc.data().name; //gets the name field
+        .then(allUsers => {
+            allUsers.forEach(doc => {
+                var userName = doc.data().name; //gets the name field
 //                var hikeID = doc.data().id; //gets the unique ID field
 //                var hikeLength = doc.data().length; //gets the length field
 
-                let testHikeCard = hikeCardTemplate.content.cloneNode(true);
-                testHikeCard.querySelector('.card-title').innerHTML = hikeName;
+                let userCard = userCardTemplate.content.cloneNode(true);
+                userCard.querySelector('.card-title').innerHTML = userName;
 //
 //                NEW LINE: update to display length, duration, last updated
 //                testHikeCard.querySelector('.card-length').innerHTML =
@@ -89,7 +89,7 @@ function populateCardsDynamically() {
 //                testHikeCard.querySelector('i').onclick = () => saveBookmark(hikeID);
 //
 //                testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
-                hikeCardGroup.appendChild(testHikeCard);
+                userCardGroup.appendChild(userCard);
             })
         })
 }
