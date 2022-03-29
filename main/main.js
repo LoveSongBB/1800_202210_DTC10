@@ -15,3 +15,23 @@ function insertName() {
     })
 }
 insertName();
+
+function populateCardsDynamically() {
+    let userMatchesCardTemplate = document.getElementById("userMatchesCardTemplate");
+    let userMatchesCardGroup = document.getElementById("userMatchesCardGroup");
+
+    db.collection('users').get().then(users => {
+        users.forEach(doc => {
+            var userName = doc.data().name
+            var userEmail = doc.data().email
+            console.log(`userName = ${userName}`);
+
+            let testUserMatchesCard = userMatchesCardTemplate.content.cloneNode(true);
+            testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
+            testUserMatchesCard.querySelector('.card-text').innerHTML = userEmail;
+
+            userMatchesCardGroup.appendChild(testUserMatchesCard);
+        })
+    })
+}
+populateCardsDynamically();
