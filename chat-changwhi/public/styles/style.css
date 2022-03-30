@@ -1,0 +1,57 @@
+/* Make new CSS style page for logged and non-logged pages */
+
+
+.header-color {
+    box-shadow: none !important;
+    background-color: #3DB2FF;
+}
+
+#logo-text-logged{
+
+    color: #fff;
+    text-decoration: none;
+}
+
+#logo-text-logged:hover{
+
+    color: #fff;
+    text-decoration: none;
+}
+
+#logo-text{
+
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#logo-text:hover{
+
+    color: #fff;
+    text-decoration: none;
+}
+
+.button-color {
+
+    background-color: #ED2939;
+}
+
+body {
+
+    background-color: #FFEDDA !important;
+}
+
+.footer {
+
+    background-color: #FFEDDA;
+}
+
+.nav-link{
+
+    text-align: center;
+}
+
+.navbar-link{
+
+    color: black;
+}

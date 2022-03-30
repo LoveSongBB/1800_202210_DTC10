@@ -1,0 +1,155 @@
+[debug] [2022-03-28T05:21:57.178Z] ----------------------------------------------------------------------
+[debug] [2022-03-28T05:21:57.180Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2022-03-28T05:21:57.181Z] CLI Version:   10.5.0
+[debug] [2022-03-28T05:21:57.181Z] Platform:      win32
+[debug] [2022-03-28T05:21:57.181Z] Node Version:  v16.14.0
+[debug] [2022-03-28T05:21:57.181Z] Time:          Sun Mar 27 2022 22:21:57 GMT-0700 (Pacific Daylight Saving Time)
+[debug] [2022-03-28T05:21:57.181Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-28T05:21:57.231Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-28T05:21:57.232Z] > authorizing via signed-in user (whinada@gmail.com)
+[debug] [2022-03-28T05:21:57.232Z] [iam] checking project comp1800-dtc10 for permissions ["firebase.projects.get"]
+[debug] [2022-03-28T05:21:57.233Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions [none]
+[debug] [2022-03-28T05:21:57.234Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-28T05:21:57.410Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions 200
+[debug] [2022-03-28T05:21:57.410Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-28T05:21:57.411Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 [none]
+[debug] [2022-03-28T05:21:57.617Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 200
+[debug] [2022-03-28T05:21:57.617Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 {"projectId":"comp1800-dtc10","projectNumber":"428944433592","displayName":"COMP1800-DTC10","name":"projects/comp1800-dtc10","resources":{"hostingSite":"comp1800-dtc10","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-03-28T05:21:57.618Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 
+[debug] [2022-03-28T05:21:58.141Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 200
+[debug] [2022-03-28T05:21:58.141Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites {"sites":[{"name":"projects/428944433592/sites/comp1800-dtc10","defaultUrl":"https://comp1800-dtc10.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-03-28T05:21:58.142Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config [none]
+[debug] [2022-03-28T05:21:58.526Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config 200
+[debug] [2022-03-28T05:21:58.527Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config {"projectId":"comp1800-dtc10","appId":"1:428944433592:web:e9bcb27a3c4f31a66f6f4d","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central","apiKey":"AIzaSyBe4KUeThXbQqF7j_ld49HTjc_PtcpiIyc","authDomain":"comp1800-dtc10.firebaseapp.com","messagingSenderId":"428944433592"}
+[info] i  hosting: Serving hosting files from: ./public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1m./public\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2022-03-28T16:51:42.491Z] ----------------------------------------------------------------------
+[debug] [2022-03-28T16:51:42.492Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2022-03-28T16:51:42.492Z] CLI Version:   10.5.0
+[debug] [2022-03-28T16:51:42.492Z] Platform:      win32
+[debug] [2022-03-28T16:51:42.492Z] Node Version:  v16.14.0
+[debug] [2022-03-28T16:51:42.493Z] Time:          Mon Mar 28 2022 09:51:42 GMT-0700 (Pacific Daylight Saving Time)
+[debug] [2022-03-28T16:51:42.493Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-28T16:51:42.546Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-28T16:51:42.546Z] > authorizing via signed-in user (whinada@gmail.com)
+[debug] [2022-03-28T16:51:42.546Z] [iam] checking project comp1800-dtc10 for permissions ["firebase.projects.get"]
+[debug] [2022-03-28T16:51:42.547Z] > refreshing access token with scopes: []
+[debug] [2022-03-28T16:51:42.548Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-03-28T16:51:42.674Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Mon, 28 Mar 2022 16:51:42 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-03-28T16:51:42.684Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions [none]
+[debug] [2022-03-28T16:51:42.684Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-28T16:51:42.847Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions 200
+[debug] [2022-03-28T16:51:42.847Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-28T16:51:42.848Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 [none]
+[debug] [2022-03-28T16:51:43.050Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 200
+[debug] [2022-03-28T16:51:43.051Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 {"projectId":"comp1800-dtc10","projectNumber":"428944433592","displayName":"COMP1800-DTC10","name":"projects/comp1800-dtc10","resources":{"hostingSite":"comp1800-dtc10","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-03-28T16:51:43.052Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 
+[debug] [2022-03-28T16:51:43.554Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 200
+[debug] [2022-03-28T16:51:43.554Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites {"sites":[{"name":"projects/428944433592/sites/comp1800-dtc10","defaultUrl":"https://comp1800-dtc10.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-03-28T16:51:43.555Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config [none]
+[debug] [2022-03-28T16:51:43.926Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config 200
+[debug] [2022-03-28T16:51:43.927Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config {"projectId":"comp1800-dtc10","appId":"1:428944433592:web:e9bcb27a3c4f31a66f6f4d","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central","apiKey":"AIzaSyBe4KUeThXbQqF7j_ld49HTjc_PtcpiIyc","authDomain":"comp1800-dtc10.firebaseapp.com","messagingSenderId":"428944433592"}
+[info] i  hosting: Serving hosting files from: ./public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1m./public\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] "GET / HTTP/1.1" 200 5816 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] \"GET / HTTP/1.1\" 200 5816 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] "GET /styles/main.css HTTP/1.1" 200 4067 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] \"GET /styles/main.css HTTP/1.1\" 200 4067 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] "GET /scripts/main.js HTTP/1.1" 200 4267550 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] \"GET /scripts/main.js HTTP/1.1\" 200 4267550 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] "GET /favicon.ico HTTP/1.1" 200 1150 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] \"GET /favicon.ico HTTP/1.1\" 200 1150 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] "GET /manifest.json HTTP/1.1" 200 149 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [28/Mar/2022:16:55:54 +0000] \"GET /manifest.json HTTP/1.1\" 200 149 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [28/Mar/2022:16:55:56 +0000] "GET /firebase-messaging-sw.js HTTP/1.1" 200 1786 "http://localhost:5000/firebase-messaging-sw.js" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [28/Mar/2022:16:55:56 +0000] \"GET /firebase-messaging-sw.js HTTP/1.1\" 200 1786 \"http://localhost:5000/firebase-messaging-sw.js\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[debug] [2022-03-29T00:59:40.314Z] ----------------------------------------------------------------------
+[debug] [2022-03-29T00:59:40.315Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2022-03-29T00:59:40.316Z] CLI Version:   10.5.0
+[debug] [2022-03-29T00:59:40.316Z] Platform:      win32
+[debug] [2022-03-29T00:59:40.316Z] Node Version:  v16.14.0
+[debug] [2022-03-29T00:59:40.317Z] Time:          Mon Mar 28 2022 17:59:40 GMT-0700 (Pacific Daylight Saving Time)
+[debug] [2022-03-29T00:59:40.317Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-29T00:59:40.380Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-29T00:59:40.380Z] > authorizing via signed-in user (whinada@gmail.com)
+[debug] [2022-03-29T00:59:40.380Z] [iam] checking project comp1800-dtc10 for permissions ["firebase.projects.get"]
+[debug] [2022-03-29T00:59:40.381Z] > refreshing access token with scopes: []
+[debug] [2022-03-29T00:59:40.382Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-03-29T00:59:40.521Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Tue, 29 Mar 2022 00:59:40 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-03-29T00:59:40.532Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions [none]
+[debug] [2022-03-29T00:59:40.532Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-29T00:59:40.673Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions 200
+[debug] [2022-03-29T00:59:40.673Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-29T00:59:40.674Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 [none]
+[debug] [2022-03-29T00:59:40.877Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 200
+[debug] [2022-03-29T00:59:40.877Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 {"projectId":"comp1800-dtc10","projectNumber":"428944433592","displayName":"COMP1800-DTC10","name":"projects/comp1800-dtc10","resources":{"hostingSite":"comp1800-dtc10","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-03-29T00:59:40.878Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 
+[debug] [2022-03-29T00:59:41.375Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 200
+[debug] [2022-03-29T00:59:41.376Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites {"sites":[{"name":"projects/428944433592/sites/comp1800-dtc10","defaultUrl":"https://comp1800-dtc10.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-03-29T00:59:41.376Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config [none]
+[debug] [2022-03-29T00:59:41.763Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config 200
+[debug] [2022-03-29T00:59:41.764Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config {"projectId":"comp1800-dtc10","appId":"1:428944433592:web:e9bcb27a3c4f31a66f6f4d","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central","apiKey":"AIzaSyBe4KUeThXbQqF7j_ld49HTjc_PtcpiIyc","authDomain":"comp1800-dtc10.firebaseapp.com","messagingSenderId":"428944433592"}
+[info] i  hosting: Serving hosting files from: ./public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1m./public\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2022-03-29T03:49:18.661Z] ----------------------------------------------------------------------
+[debug] [2022-03-29T03:49:18.662Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2022-03-29T03:49:18.663Z] CLI Version:   10.5.0
+[debug] [2022-03-29T03:49:18.663Z] Platform:      win32
+[debug] [2022-03-29T03:49:18.663Z] Node Version:  v16.14.0
+[debug] [2022-03-29T03:49:18.664Z] Time:          Mon Mar 28 2022 20:49:18 GMT-0700 (Pacific Daylight Saving Time)
+[debug] [2022-03-29T03:49:18.664Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-29T03:49:18.716Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-29T03:49:18.716Z] > authorizing via signed-in user (whinada@gmail.com)
+[debug] [2022-03-29T03:49:18.716Z] [iam] checking project comp1800-dtc10 for permissions ["firebase.projects.get"]
+[debug] [2022-03-29T03:49:18.717Z] > refreshing access token with scopes: []
+[debug] [2022-03-29T03:49:18.717Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-03-29T03:49:18.853Z] <<< HTTP RESPONSE 200 {"date":"Tue, 29 Mar 2022 03:49:19 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-03-29T03:49:18.864Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions [none]
+[debug] [2022-03-29T03:49:18.864Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-29T03:49:19.023Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions 200
+[debug] [2022-03-29T03:49:19.023Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-29T03:49:19.025Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 [none]
+[debug] [2022-03-29T03:49:19.218Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 200
+[debug] [2022-03-29T03:49:19.218Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 {"projectId":"comp1800-dtc10","projectNumber":"428944433592","displayName":"COMP1800-DTC10","name":"projects/comp1800-dtc10","resources":{"hostingSite":"comp1800-dtc10","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-03-29T03:49:19.220Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 
+[debug] [2022-03-29T03:49:19.708Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites 200
+[debug] [2022-03-29T03:49:19.708Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/comp1800-dtc10/sites {"sites":[{"name":"projects/428944433592/sites/comp1800-dtc10","defaultUrl":"https://comp1800-dtc10.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-03-29T03:49:19.708Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config [none]
+[debug] [2022-03-29T03:49:20.120Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config 200
+[debug] [2022-03-29T03:49:20.120Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10/webApps/-/config {"projectId":"comp1800-dtc10","appId":"1:428944433592:web:e9bcb27a3c4f31a66f6f4d","storageBucket":"comp1800-dtc10.appspot.com","locationId":"us-central","apiKey":"AIzaSyBe4KUeThXbQqF7j_ld49HTjc_PtcpiIyc","authDomain":"comp1800-dtc10.firebaseapp.com","messagingSenderId":"428944433592"}
+[info] i  hosting: Serving hosting files from: ./public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1m./public\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [29/Mar/2022:06:48:30 +0000] "GET / HTTP/1.1" 200 6023 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Mar/2022:06:48:30 +0000] \"GET / HTTP/1.1\" 200 6023 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Mar/2022:06:48:30 +0000] "GET /styles/main.css HTTP/1.1" 200 4067 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Mar/2022:06:48:30 +0000] \"GET /styles/main.css HTTP/1.1\" 200 4067 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Mar/2022:06:48:30 +0000] "GET /scripts/main.js HTTP/1.1" 200 4267561 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Mar/2022:06:48:30 +0000] \"GET /scripts/main.js HTTP/1.1\" 200 4267561 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Mar/2022:06:48:32 +0000] "GET /manifest.json HTTP/1.1" 200 149 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Mar/2022:06:48:32 +0000] \"GET /manifest.json HTTP/1.1\" 200 149 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Mar/2022:06:48:33 +0000] "GET /firebase-messaging-sw.js HTTP/1.1" 200 1786 "http://localhost:5000/firebase-messaging-sw.js" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Mar/2022:06:48:33 +0000] \"GET /firebase-messaging-sw.js HTTP/1.1\" 200 1786 \"http://localhost:5000/firebase-messaging-sw.js\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36\""}}
+[debug] [2022-03-29T16:11:32.036Z] ----------------------------------------------------------------------
+[debug] [2022-03-29T16:11:32.041Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2022-03-29T16:11:32.042Z] CLI Version:   10.5.0
+[debug] [2022-03-29T16:11:32.042Z] Platform:      win32
+[debug] [2022-03-29T16:11:32.043Z] Node Version:  v16.14.0
+[debug] [2022-03-29T16:11:32.045Z] Time:          Tue Mar 29 2022 09:11:32 GMT-0700 (Pacific Daylight Saving Time)
+[debug] [2022-03-29T16:11:32.045Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-29T16:11:32.189Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-29T16:11:32.190Z] > authorizing via signed-in user (ckdgnl86@gmail.com)
+[debug] [2022-03-29T16:11:32.190Z] [iam] checking project comp1800-dtc10 for permissions ["firebase.projects.get"]
+[debug] [2022-03-29T16:11:32.194Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions [none]
+[debug] [2022-03-29T16:11:32.194Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-29T16:11:32.735Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions 200
+[debug] [2022-03-29T16:11:32.736Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1800-dtc10:testIamPermissions {}
+[debug] [2022-03-29T16:11:32.737Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project comp1800-dtc10:
+
+  firebase.projects.get
+[debug] [2022-03-29T16:11:32.739Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 [none]
+[debug] [2022-03-29T16:11:33.250Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 403
+[debug] [2022-03-29T16:11:33.251Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/comp1800-dtc10 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-03-29T16:11:33.253Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-03-29T16:11:33.508Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:47:12)
+    at RetryOperation._fn (C:\Users\whina\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project comp1800-dtc10. Please make sure the project exists and your account has permission to access it.
