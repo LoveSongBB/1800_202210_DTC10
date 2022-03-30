@@ -28,7 +28,11 @@ function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
     return matchCounter;
 }
 
-function getCurrentUserAnswerList() {
+
+function matchUser() {
+    var userMatches = {};
+    var matchedUserIDArray = [];
+
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
             var userId = user.id;
@@ -38,11 +42,6 @@ function getCurrentUserAnswerList() {
             }
         })
     })
-}
-
-function matchUser() {
-    var userMatches = {};
-    var matchedUserIDArray = [];
 
     // Loop through users collection in firebase
     db.collection("users").get().then(function (querySnapshot) {
@@ -52,7 +51,6 @@ function matchUser() {
 
             // Append data directly to firebase. Append to currentUser document.
             if (currentUserID != userID && userAnswerList != undefined) {
-                getCurrentUserAnswerList()
                 userMatches[userID] = compareAnswerLists(currentUserAnswerList, userAnswerList);
                 currentUser.update({
                     userMatchesMap: userMatches
@@ -125,14 +123,14 @@ function matchUser() {
         querySnapshot.forEach(user => {
             var userId = user.id;
             var testUserMatchesCard = userMatchesCardTemplate.content.cloneNode(true);
-            
+
 
             if (matchedUserIDArray.includes(userId)) {
                 var userName = user.data().name
                 var userEmail = user.data().email
 
                 console.log(userName);
-                
+
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
                 testUserMatchesCard.querySelector('.card-text').innerHTML = userEmail;
 
