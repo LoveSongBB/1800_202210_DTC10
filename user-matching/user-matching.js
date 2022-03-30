@@ -1,6 +1,6 @@
 var currentUser;
 var currentUserID;
-// var currentUserAnswerList;
+var currentUserAnswerList;
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(user => {
         matchUser();
     } else {
         console.log("No one is signed in.");
-        window.location.href = '../signup-login/signup-login.html';
+        window.location.href = '/login.html';
     }
 })
 
@@ -28,34 +28,31 @@ function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
     return matchCounter;
 }
 
-
-function matchUser() {
-    var userMatches = {};
-    var matchedUserIDArray = [];
-    var currentUserAnswerList = []; 
-
-    // get currentUnswer answerlist and store it to currentUserAnswerList.
+function getCurrentUserAnswerList() {
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
             var userId = user.id;
-            
 
             if (currentUserID == userId) {
                 currentUserAnswerList = user.data().answerList;
             }
         })
     })
+}
+
+function matchUser() {
+    var userMatches = {};
+    var matchedUserIDArray = [];
 
     // Loop through users collection in firebase
     db.collection("users").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (user) {
             var userAnswerList = user.data().answerList
             var userID = user.id;
-            
+
             // Append data directly to firebase. Append to currentUser document.
             if (currentUserID != userID && userAnswerList != undefined) {
-                
-                // console.log(currentUserAnswerList)
+                getCurrentUserAnswerList()
                 userMatches[userID] = compareAnswerLists(currentUserAnswerList, userAnswerList);
                 currentUser.update({
                     userMatchesMap: userMatches
@@ -120,15 +117,26 @@ function matchUser() {
         }
     })
 
-    console.log(userMatches);
+    // Populate cards dynamically with user matches.
+    let userMatchesCardTemplate = document.getElementById("userMatchesCardTemplate");
+    let userMatchesCardGroup = document.getElementById("userMatchesCardGroup");
 
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
             var userId = user.id;
+            var testUserMatchesCard = userMatchesCardTemplate.content.cloneNode(true);
+            
 
             if (matchedUserIDArray.includes(userId)) {
-                // This is where you would dynamically populate cards containing the profiles of the users.
-                console.log(`You matched with ${user.data().name}`);
+                var userName = user.data().name
+                var userEmail = user.data().email
+
+                console.log(userName);
+                
+                testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
+                testUserMatchesCard.querySelector('.card-text').innerHTML = userEmail;
+
+                userMatchesCardGroup.appendChild(testUserMatchesCard);
             }
         })
     })
