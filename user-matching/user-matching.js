@@ -147,14 +147,19 @@ function matchUser() {
     })
 }
 
-function clickCard() {
+function clickProfileButtonOnCard() {
     let clickedCardUserId = $(this).val();
     localStorage.setItem('goToUserIdProfile', clickedCardUserId)
     window.location.href = "/userMatchedProfile/user-matched-profile.html";
 }
 
+function clickFriendButtonOnCard() {
+    window.location.href="/friendlist/friendlist.html"
+}
+
 function setup() {
-    $("body").on('click', '#profile-button', clickCard);
+    $("body").on('click', '#profile-button', clickProfileButtonOnCard);
+    $("body").on('click', '#add-friend-button', clickFriendButtonOnCard);
 }
 
 $(document).ready(setup);
