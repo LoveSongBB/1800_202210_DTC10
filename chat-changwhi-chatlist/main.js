@@ -3,6 +3,7 @@ var ID;
 var youruserId;
 
 
+
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
 
@@ -66,7 +67,7 @@ function getBookmarks(user) {
                     size = snap.size;
                     queryData = snap.docs;
                     var doc = queryData[0].data();
-                    var room_number = doc.room_number; //gets the name field
+                    room_number = doc.room_number; //gets the name field
                     // var hikeID = doc.id; //gets the unique ID field
                     var userID = doc.yourcode; //gets the length field
                     var youruserId = doc.mycode; //gets the length field
@@ -129,7 +130,7 @@ function make_room() {
                 .then(userDoc => {
                     var userEmail = userDoc.data().email;
                     var mycode = userDoc.data().name;
-                    var room_number = db.collection("eachRooms").doc().id
+                    room_number = db.collection("eachRooms").doc().id
 
                     db.collection("eachRooms").add({
                         room_number: room_number,
@@ -143,10 +144,14 @@ function make_room() {
                     }).then(() => {
                         saveBookmark(room_number)
                         saveroomnumber_count(room_number)
-                        window.location.href = "../chat-changwhi-chatlist/chat-list.html"; //new line added
+                        getroomnb(room_number)
                     })
-                    console.log("여기까지는 옴")
+                    .then(() => {
+                        console.log("여기까지는 옴")
+                        window.location.href = "../chat-changwhi/public/index.html"; //new line added
 
+                   
+                    })
 
                 })
 
