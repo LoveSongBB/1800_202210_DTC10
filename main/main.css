@@ -1,0 +1,14 @@
+#userMatchesCardGroup{
+
+    justify-content: center;
+}
+
+.card {
+
+    width: 80% !important;
+}
+
+#main-match-title{
+
+    width: 80%;
+}
