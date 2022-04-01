@@ -127,12 +127,12 @@ function matchUser() {
 
             if (matchedUserIDArray.includes(userId)) {
                 var userName = user.data().name
-                var userEmail = user.data().email
+                var userIdToDisplay = `userID: ${userId}`
 
                 console.log(userName);
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
-                testUserMatchesCard.querySelector('.card-text').innerHTML = userEmail;
+                testUserMatchesCard.querySelector('.card-text').innerHTML = userIdToDisplay;
 
                 userMatchesCardGroup.appendChild(testUserMatchesCard);
             }
