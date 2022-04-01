@@ -13,31 +13,41 @@
 //  })
 //})
 
-function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("search");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
+//function myFunction() {
+//    var input, filter, ul, li, a, i, txtValue;
+//    input = document.getElementById("search");
+//    filter = input.value.toUpperCase();
+//    ul = document.getElementById("myUL");
+//    li = ul.getElementsByTagName("li");
+//    for (i = 0; i < li.length; i++) {
+//        a = li[i].getElementsByTagName("a")[0];
+//        txtValue = a.textContent || a.innerText;
+//        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//            li[i].style.display = "";
+//        } else {
+//            li[i].style.display = "none";
+//        }
+//    }
+//}
+
+//$(document).ready(function(){
+//  $("#search").on("keyup", function() {
+//    var value = $(this).val().toLowerCase();
+//    $("#container *").filter(function() {
+//      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//    });
+//  });
+//});
 
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid);   //global
-        console.log(currentUser);
+//        console.log(currentUser);
 
         // the following functions are always called when someone is logged in
-        populateCardsDynamically();
+//        populateCardsDynamically();
+//        displaySearchValue();
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -45,38 +55,37 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
-$(document).ready(function(){
-  $("#search").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#container *").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
 
-
-function populateCardsDynamically() {
+function displaySearchValue(){
     let userCardTemplate = document.getElementById("hikeCardTemplate");
     let userCardGroup = document.getElementById("hikeCardGroup");
+//    console.log(document.getElementById("mySearch"));
+    var x = document.getElementById("mySearch").value;
+//    z = console.log(document.getElementById("mySearch"));
+//    w = $("mySearch").val();
+//    console.log(z);
+//    console.log(w);
+//    console.log(x);
+//    alert (x);
 
-    db.collection("users")           //NEW LINE;  what do you want to sort by?
-        .limit(10)                       //NEW LINE:  how many do you want to get?
-        .get()
-        .then(allUsers => {
-            allUsers.forEach(doc => {
-                var userName = doc.data().name; //gets the name field
-//                var hikeID = doc.data().id; //gets the unique ID field
-//                var hikeLength = doc.data().length; //gets the length field
-
+db.collection("users").where("name", ">=", x).limit(5)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            var userName = doc.data().name;
+            var hikeID = doc.data().userID;
+            console.log(doc.userID, " => ", doc.data());
                 let userCard = userCardTemplate.content.cloneNode(true);
                 userCard.querySelector('.card-title').innerHTML = userName;
-//
+                 //gets the unique ID field
+              userCard.querySelector('a').onclick = () => setHikeData(hikeID);
+              userCard.querySelector('.read-more').href = "../otherUserProfile/other-user-profile.html?hikeName="+userName +"&id=" + hikeID;
 //                NEW LINE: update to display length, duration, last updated
 //                testHikeCard.querySelector('.card-length').innerHTML =
 //                "Length: " + doc.data().length + " km <br>" +
 //                "Duration: " + doc.data().length_time + "min <br>" +
 //                "Last updated: " + doc.data().last_updated.toDate();
-//
 //                testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
 //                testHikeCard.querySelector('.read-more').href = "eachHike.html?hikeName="+hikeName +"&id=" + hikeID;
 //                next 2 lines are new for demo#11
@@ -87,14 +96,64 @@ function populateCardsDynamically() {
 //                testHikeCard.querySelector('i').id = 'save-' + hikeID;
 //                 this line will call a function to save the hikes to the user's document
 //                testHikeCard.querySelector('i').onclick = () => saveBookmark(hikeID);
-//
-//                testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
+//                testHikeCard.querySelector('img').src = `./images/${hikeID}.jp
                 userCardGroup.appendChild(userCard);
-            })
-        })
+        });
+    });
+}
+//displaySearchValue();
+
+function setup(){
+
+   $("#mySearch").click(displaySearchValue);
 }
 
-populateCardsDynamically();
+function setHikeData(userID){
+    localStorage.setItem ('hikeID', userID);
+}
+
+jQuery(document).ready(setup)
+
+//function populateCardsDynamically() {
+//    let userCardTemplate = document.getElementById("hikeCardTemplate");
+//    let userCardGroup = document.getElementById("hikeCardGroup");
+//
+//    db.collection("users")           //NEW LINE;  what do you want to sort by?
+//        .limit(10)                       //NEW LINE:  how many do you want to get?
+//        .get()
+//        .then(allUsers => {
+//            allUsers.forEach(doc => {
+//                var userName = doc.data().name; //gets the name field
+////                var hikeID = doc.data().id; //gets the unique ID field
+////                var hikeLength = doc.data().length; //gets the length field
+//
+//                let userCard = userCardTemplate.content.cloneNode(true);
+//                userCard.querySelector('.card-title').innerHTML = userName;
+////
+////                NEW LINE: update to display length, duration, last updated
+////                testHikeCard.querySelector('.card-length').innerHTML =
+////                "Length: " + doc.data().length + " km <br>" +
+////                "Duration: " + doc.data().length_time + "min <br>" +
+////                "Last updated: " + doc.data().last_updated.toDate();
+////
+////                testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
+////                testHikeCard.querySelector('.read-more').href = "eachHike.html?hikeName="+hikeName +"&id=" + hikeID;
+////                next 2 lines are new for demo#11
+////                this line sets the id attribute for the <i> tag in the format of "save-hikeID"
+////                so later we know which hike to bookmark based on which hike was clicked
+////                ps. this works because we have only one icon.
+////                if you have other icons, you will need a unique selector
+////                testHikeCard.querySelector('i').id = 'save-' + hikeID;
+////                 this line will call a function to save the hikes to the user's document
+////                testHikeCard.querySelector('i').onclick = () => saveBookmark(hikeID);
+////
+////                testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;
+//                userCardGroup.appendChild(userCard);
+//            })
+//        })
+//}
+
+//populateCardsDynamically();
 
 
 //function myFunction() {
@@ -134,9 +193,7 @@ populateCardsDynamically();
 //--------------------------------------------------------------
 // This function saves the current hikeID into the localStorage
 //--------------------------------------------------------------
-function setHikeData(id){
-    localStorage.setItem ('hikeID', id);
-}
+
 
 
 //const userCardTemplate = document.querySelector("[data-user-template]")
