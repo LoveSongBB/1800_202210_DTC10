@@ -150,7 +150,7 @@ function matchUser() {
 function clickCard() {
     let clickedCardUserId = $(this).val();
     localStorage.setItem('goToUserIdProfile', clickedCardUserId)
-    window.location.href = "/otherUserProfile/other-user-profile.html";
+    window.location.href = "/userMatchedProfile/user-matched-profile.html";
 }
 
 function setup() {
