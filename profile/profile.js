@@ -46,9 +46,11 @@ function saveUserInfo() {
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
 //    userEmail = document.getElementById('emailInput').value;     //get the value of the field with id="emailInput"
     userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
+    userBio = document.getElementById('bioInput').value;        //get the value of the field with id="bioInput"
 
     currentUser.update({
                     name: userName,
+                    bio: userBio,
 //                    email: userEmail,
                     city: userCity
                 })
