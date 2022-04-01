@@ -139,3 +139,13 @@ function matchUser() {
         })
     })
 }
+
+function clickCard() {
+    console.log('card is clicked')
+}
+
+function setup() {
+    $("body").on('click', '#profile-button', clickCard);
+}
+
+$(document).ready(setup);
