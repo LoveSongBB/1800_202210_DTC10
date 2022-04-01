@@ -12,37 +12,37 @@ p {
 
 #logo-text-logged{
 
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 
 #logo-text-logged:hover{
 
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 #logo-text{
 
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 
 #logo-text:hover{
 
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 .button-color {
 
-    background-color: #ED2939;
+    background-color: #ED2939 !important;
 }
 
 .btn-outline-light:hover {
 
-        background-color: #f80c35;
+        background-color: #f80c35 !important;
 }
 
 body {
@@ -52,15 +52,15 @@ body {
 
 .footer {
 
-    background-color: #FFEDDA;
+    background-color: #FFEDDA !important;
 }
 
 .nav-link{
 
-    text-align: center;
+    text-align: center !important;
 }
 
 .navbar-link{
 
-    color: black;
+    color: black !important;
 }
