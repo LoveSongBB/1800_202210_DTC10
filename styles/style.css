@@ -1,5 +1,9 @@
 /* Make new CSS style page for logged and non-logged pages */
 
+p {
+
+    color: black !important;
+}
 
 .header-color {
     box-shadow: none !important;
@@ -34,6 +38,11 @@
 .button-color {
 
     background-color: #ED2939;
+}
+
+.btn-outline-light:hover {
+
+        background-color: #f80c35;
 }
 
 body {
