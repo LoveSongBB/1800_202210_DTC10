@@ -1,0 +1,63 @@
+#login-title h1{
+
+    padding: 50px 0px 25px 0px !important;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#logo-text h1{
+
+    margin: 0px !important;
+}
+
+#footerPlaceholder{
+
+    position: fixed;
+    width:100%;
+    bottom: 0;
+}
+
+.firebaseui-container{
+
+    padding-top: 10%;
+    margin-bottom:15%:
+    height: 450px;
+    border-radius: 50px;
+    border: 1px solid #808080;
+}
+
+form{
+
+    vertical-align:middle;
+}
+
+.firebaseui-tos{
+
+   font-size: 15px !important;
+   line-height: 1.5;
+}
+
+
+.mdl-textfield__label{
+
+    font-size: 15px !important;
+    font-weight: 600;
+    color: black;
+}
+
+mdl-textfield--floating-label.is-dirty{
+
+    font-size: 25px !important;
+}
+
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label{
+
+    color: black;
+}
+
+.firebaseui-input{
+
+    margin: 5px;
+}
