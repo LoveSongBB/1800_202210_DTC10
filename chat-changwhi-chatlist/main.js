@@ -1,5 +1,8 @@
 
 var currentUser;
+var ID;
+var youruserId;
+
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -186,7 +189,7 @@ function make_room() {
     // let Title = document.getElementById("title").value;
     // let Level = document.getElementById("level").value;
     // let Season = document.getElementById("season").value;
-    let ID = document.getElementById("make_chat_input").value;
+    ID = document.getElementById("make_chat_input").value;
     // let Flooded = document.querySelector('input[name="flooded"]:checked').value;
     // let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
     // console.log(Title, Level, Season, Description, Flooded, Scrambled);
@@ -204,9 +207,11 @@ function make_room() {
         var thisHike = Hikes[0].data();
         youruserId = thisHike.userID;
         document.getElementById("counter").innerHTML = `<h1 id="title">제목${youruserId}</h1>`;
-        group: firebase.firestore.FieldValue.arrayUnion(hikeID)
     }
     )
+
+
+
 //.where  로컬스토리지에서 같은 ID를 찾아서 가져온다                     id
 db.collection("users")
 //define a document for a user with UID as a document ID
@@ -232,6 +237,7 @@ db.collection("users")
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(()=>{
                         saveBookmark(room_number)
+                        saveroomnumber_count(room_number)
                         window.location.href = "../chat-changwhi-chatlist/chat-list.html"; //new line added
                     })
                     alert("여기까지는 옴")
@@ -248,6 +254,7 @@ db.collection("users")
 
 }
 
+// Add room number to users collection 
 function saveBookmark(hikeID) {
     currentUser.set({
             group: firebase.firestore.FieldValue.arrayUnion(hikeID)
@@ -259,9 +266,28 @@ function saveBookmark(hikeID) {
         });
 }
 
+
+function saveroomnumber_count(hikeID) {
+    alert(youruserId)
+    db.collection("users").doc(youruserId).set({
+        group: firebase.firestore.FieldValue.arrayUnion(hikeID)
+    }, {
+        merge: true
+    })
+    .then(function () {
+        alert("gm")
+
+
+    })
+}
+
+
+
+
+
 function passroomnumber(expectedID) {
-    alert("실행됨");
-    alert(expectedID);
+    console.log("실행됨");
+    console.log(expectedID);
     $('.hiddenroomnumbertransfer').append(`${expectedID}`)
     
 }
