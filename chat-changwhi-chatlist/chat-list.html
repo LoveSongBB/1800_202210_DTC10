@@ -30,6 +30,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+    <link rel="stylesheet" href="./style.css"/>
+
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-------------------------------------------->
@@ -60,15 +63,16 @@
 
     <!-- Changwhi Added for chat -->
     <button id="make_chat" type="button" onclick="make_room()"> Create Chatting room </button>
-    <input id="make_chat_input" type="text" value="Jesper">
+    <input id="make_chat_input" style="margin-top: 10px;" type="text" placeholder="Type user name">
 
     <div id="counter">Your part is .. </div>
 
 
     <div class="container">
         <h1>Changwhi's Bookmarked Hikes Gallery</h1>
+        <br>
         <!-- Here is container for cards  -->
-        <div class="container">
+        <div class="container" style="text-align: center;">
             <div id="hikeCardGroup" class="row row-cols-auto">
 
             </div>
@@ -80,10 +84,12 @@
         <div class="card">
             <img class="img">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title" hidden>Card title</h5>
+                <h5 class="card-title">title</h5>
+
                 <p class="Counterpart">My name</p>
                 <p class="userID">Your name</p>
-                <a id="" href="../chat-changwhi/public/index.html" style="color: azure;"  class="link-primary btn btn-primary card-href" onclick="passroomnumber(this.id)"> Go to room </a>
+                <a id="" href="../chat-changwhi/public/index.html" style="color: azure;"  class="link-primary btn btn-primary card-href" onclick="passroomnumber(this.id)"> Go to Chat room </a>
             </div>
         </div>
     </template>
@@ -103,7 +109,6 @@
     <script src="../scripts/firebaseAPI_TEAM10.js"></script>
     <script src="../scripts/skeleton.js"></script>
     <script src="./main.js"></script>
-    <script src="./chat-list.css"></script>
 
 
 </body>

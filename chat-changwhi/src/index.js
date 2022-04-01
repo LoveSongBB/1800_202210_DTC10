@@ -17,7 +17,7 @@
  var test1 = localStorage.getItem('roomnumber');
  var test = String(test1)
 
-alert(test)
+console.log("RoomNumber =" + test)
  
  import { initializeApp } from 'firebase/app';
  import {
