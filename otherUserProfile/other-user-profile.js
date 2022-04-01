@@ -36,7 +36,6 @@ firebase.auth().onAuthStateChanged(user => {
 });
 
 
-
 function showDetails() {
     // create a URL object
 //    let testtest = document.getElementById("test");
