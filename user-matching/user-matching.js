@@ -1,6 +1,7 @@
 var currentUser;
 var currentUserID;
 var currentUserAnswerList;
+var matchedUserIDArray = [];
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -31,7 +32,7 @@ function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
 
 function matchUser() {
     var userMatches = {};
-    var matchedUserIDArray = [];
+    
 
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
@@ -119,6 +120,9 @@ function matchUser() {
     let userMatchesCardTemplate = document.getElementById("userMatchesCardTemplate");
     let userMatchesCardGroup = document.getElementById("userMatchesCardGroup");
 
+    let buttonValue = 0;
+
+    // This loops through all users in the collection.
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
             var userId = user.id;
@@ -133,15 +137,20 @@ function matchUser() {
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
                 testUserMatchesCard.querySelector('.card-text').innerHTML = userIdToDisplay;
+                testUserMatchesCard.querySelector('#profile-button').value = userId;
 
                 userMatchesCardGroup.appendChild(testUserMatchesCard);
+
+                buttonValue += 1;
             }
         })
     })
 }
 
 function clickCard() {
-    console.log('card is clicked')
+    let clickedCardUserId = $(this).val();
+    localStorage.setItem('goToUserIdProfile', clickedCardUserId)
+    window.location.href = "/otherUserProfile/other-user-profile.html";
 }
 
 function setup() {

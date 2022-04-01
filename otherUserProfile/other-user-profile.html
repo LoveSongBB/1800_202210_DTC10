@@ -44,10 +44,6 @@
                             <div class="profile-img">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                                      alt=""/>
-                                <div class="file btn btn-lg btn-primary">
-                                    Change Photo
-                                    <input type="file" name="file"/>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -56,10 +52,10 @@
                                             <span id="name-profile"></span>
 
                                         </h5>
+                                        <h2 id="h2-name"></h2>
                                         <h6>
                                             Web Developer and Designer
                                         </h6>
-                                        <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
@@ -73,7 +69,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                    <button type="button" class="btn btn-outline-light me-2"><a href="edit-profile.html">Edit Profile></a></button>
+                            <button type="button" class="btn btn-success">Add Friend</button>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
@@ -82,12 +78,6 @@
                                 <a href="">lorem</a><br/>
                                 <a href="">lorem</a><br/>
                                 <a href="">lorem</a>
-    <!--                            <p>SKILLS</p>-->
-    <!--                            <a href="">lorem</a><br/>-->
-    <!--                            <a href="">lorem</a><br/>-->
-    <!--                            <a href="">lorem</a><br/>-->
-    <!--                            <a href="">lorem</a><br/>-->
-    <!--                            <a href="">lorem</a><br/>-->
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -95,18 +85,10 @@
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Username</label>
+                                                    <label><h3>User ID</h3></label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>"insert username"</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Name</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Insert Name</p>
+                                                    <p id="paragraph-user-id"></p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -174,7 +156,7 @@
 
         <script src="../scripts/firebaseAPI_TEAM10.js"></script>
         <script src="../scripts/skeleton.js"></script>
-        <script src="profile.js"></script>
+        <script src="other-user-profile.js"></script>
 
     </body>
 
