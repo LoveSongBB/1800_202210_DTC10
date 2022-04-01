@@ -72,8 +72,8 @@ function getBookmarks(user) {
                     var youruserId = doc.mycode; //gets the length field
                     let newCard = CardTemplate.content.cloneNode(true);
                     newCard.querySelector('.card-title').innerHTML = room_number;
-                    newCard.querySelector('.Counterpart').innerHTML = youruserId;
-                    newCard.querySelector('.userID').innerHTML = userID;
+                    newCard.querySelector('.Counterpart').innerHTML = "Member 1 : " + youruserId;
+                    newCard.querySelector('.userID').innerHTML = "Member 2 : " + userID;
                     newCard.querySelector('.link-primary').id = room_number
                     newCard.querySelector('a').onclick = () => getroomnb(room_number);
 
