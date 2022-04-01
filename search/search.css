@@ -19,7 +19,7 @@ input {
   border: 1px solid black;
   background-color: white;
   padding: .5rem;
-  width: 100%;
+  width: 80%;
 }
 
 .card > .header {
@@ -66,4 +66,9 @@ input {
 
 #myUL li a:hover:not(.header) {
   background-color: #eee;
+}
+
+#hikeCardGroup {
+
+    justify-content: center;
 }
