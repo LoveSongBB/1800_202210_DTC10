@@ -14,4 +14,5 @@ function insertName() {
         }
     })
 }
-insertName();
+insertName();  // Commenting this line out breaks the code so watch out.
+
