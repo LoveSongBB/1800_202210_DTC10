@@ -51,7 +51,7 @@ firebase.auth().onAuthStateChanged(user => {
     } else {
         // No user is signed in.
         console.log("No user is signed in");
-        window.location.href = "../signup-login/signup-login.html";
+        window.location.href = "../signup-login/login.html";
     }
 });
 
