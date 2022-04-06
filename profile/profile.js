@@ -11,18 +11,26 @@ function populateInfo() {
                         .then(userDoc => {
                             //get the data fields of the user
                             var userName = userDoc.data().name;
-//                            var userEmail = userDoc.data().email;
+                            var userEmail = userDoc.data().email;
                             var userCity = userDoc.data().city;
+                            var userBio = userDoc.data().bio;
+                            var userOcc = userDoc.data().occupation;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
                             }
-//                            if (userEmail != null) {
-//                                document.getElementById("emailInput").value = userEmail;
-//                            }
+                            if (userEmail != null) {
+                                document.getElementById("emailInput").value = userEmail;
+                            }
                             if (userCity != null) {
                                 document.getElementById("cityInput").value = userCity;
+                            }
+                            if (userCity != null) {
+                                document.getElementById("bioInput").value = userBio;
+                            }
+                             if (userCity != null) {
+                                document.getElementById("occInput").value = userOcc;
                             }
                         })
                 } else {
@@ -44,15 +52,17 @@ function editUserInfo() {
 function saveUserInfo() {
 
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-//    userEmail = document.getElementById('emailInput').value;     //get the value of the field with id="emailInput"
+    userEmail = document.getElementById('emailInput').value;     //get the value of the field with id="emailInput"
     userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
     userBio = document.getElementById('bioInput').value;        //get the value of the field with id="bioInput"
+        userOcc = document.getElementById('occInput').value;
 
     currentUser.update({
                     name: userName,
                     bio: userBio,
-//                    email: userEmail,
-                    city: userCity
+                    email: userEmail,
+                    city: userCity,
+                    occupation: userOcc
                 })
                 .then(() => {
                     console.log("Document successfully updated!");
