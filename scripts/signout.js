@@ -11,7 +11,7 @@ function logout() {
 }
 
 function setup() {
-    // $('body').on('click', '#signout-button', logout)
+    $('body').on('click', '#signout-button', logout)
 }
 
 $(document).ready(setup)
