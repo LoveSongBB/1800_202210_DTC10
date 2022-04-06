@@ -37,6 +37,7 @@ function populateCardsDynamically() {
         querySnapshot.forEach(user => {
             var userId = user.id;
 
+            // This dynamically populates the cards with the users friends.
             if (currentUserFriendList.includes(userId)) {
                 var hikeName = user.data().name; //gets the name field
                 var hikeID = user.data().userID; //gets the unique ID field
