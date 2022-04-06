@@ -150,11 +150,11 @@ function matchUser() {
 function clickProfileButtonOnCard() {
     let clickedCardUserId = $(this).val();
     localStorage.setItem('goToUserIdProfile', clickedCardUserId)
-    window.location.href = "/userMatchedProfile/user-matched-profile.html";
+    window.location.href = "/html/user-matched-profile.html";
 }
 
 function clickFriendButtonOnCard() {
-    window.location.href="/friendlist/friendlist.html"
+    window.location.href="/html/friendlist.html"
 }
 
 function setup() {

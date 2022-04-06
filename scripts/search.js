@@ -51,7 +51,7 @@ firebase.auth().onAuthStateChanged(user => {
     } else {
         // No user is signed in.
         console.log("No user is signed in");
-        window.location.href = "../signup-login/signup-login.html";
+        window.location.href = "../html/login.html";
     }
 });
 
@@ -80,7 +80,7 @@ db.collection("users").where("name", ">=", x).limit(5)
                 userCard.querySelector('.card-title').innerHTML = userName;
                  //gets the unique ID field
               userCard.querySelector('a').onclick = () => setHikeData(hikeID);
-              userCard.querySelector('.read-more').href = "../otherUserProfile/other-user-profile.html?hikeName="+userName +"&id=" + hikeID;
+              userCard.querySelector('.read-more').href = "../html/other-user-profile.html?hikeName="+userName +"&id=" + hikeID;
 //                NEW LINE: update to display length, duration, last updated
 //                testHikeCard.querySelector('.card-length').innerHTML =
 //                "Length: " + doc.data().length + " km <br>" +

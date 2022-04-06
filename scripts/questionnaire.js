@@ -20,7 +20,7 @@ function getUserAnswerList() {
                 answerList: getUserAnswerListValues()
             }).then(() => {
                 console.log("then() performed");
-                window.location.href = "../main/main.html";
+                window.location.href = "../html/main.html";
             })
 
         } else {
