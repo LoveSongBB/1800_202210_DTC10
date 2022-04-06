@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Search | ChitChat</title>
+<head>
+    <title>Search | ChitChat</title>
 
-        <!------------------------>
-        <!-- Required meta tags -->
-        <!------------------------>
-        <meta charset="utf-8">
-        <meta name="Chitchat project" content="my bcit project">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------------------------>
+    <!-- Required meta tags -->
+    <!------------------------>
+    <meta charset="utf-8">
+    <meta name="Chitchat project" content="my bcit project">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!------------------------------------------>
-        <!-- Bootstrap Library CSS JS CDN go here -->
-        <!------------------------------------------>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
-        ></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
-        ></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
+    ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-        <!-------------------------------------------------------->
-        <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-        <!-------------------------------------------------------->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
 
-        <!-------------------------------------------->
-        <!-- Other libraries and styles of our own -->
-        <!-------------------------------------------->
-        <!-- Font Awesome -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-        <!-- MDB -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../styles/style.css"/>
-        <link rel="stylesheet" href="search.css"/>
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of our own -->
+    <!-------------------------------------------->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css"/>
+    <link rel="stylesheet" href="search.css"/>
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <!------------------------------>
-        <!-- The HTML Layout go here -->
-        <!------------------------------>
+<!------------------------------>
+<!-- The HTML Layout go here -->
+<!------------------------------>
 
-        <!-- NavBar -->
+<!-- NavBar -->
 <!--        <nav id="navbarPlaceholderLogged"></nav>-->
 
 <!--    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">-->
@@ -81,13 +81,13 @@
 <!--});-->
 
 <!--</style>-->
-        <div class="container">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="mySearch">
-            <button class="btn btn-outline-success" id="searchButton" type="submit" onclick="displaySearchValue()">Search
-            </button>
-        </form>
-        </div>
+<div class="container">
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="mySearch">
+        <button class="btn btn-outline-success" id="searchButton" type="submit" onclick="displaySearchValue()">Search
+        </button>
+    </form>
+</div>
 <!--    <div class="container">-->
 <!--        <h1>Searches</h1>-->
 <!--        <div class="search-wrapper">-->
@@ -111,41 +111,41 @@
 <!--      <li><a href="#">Steven</a></li>-->
 <!--      <li><a href="#">Evan</a></li>-->
 <!--    </ul>-->
-        <template id="hikeCardTemplate">
-            <div class="card" id="test2">
-                <img class="card-img-top">
-                <div class="card-body" id="myUL">
-                    <div class="card-title">placeholder</div>
-                    <a class="btn btn-primary read-more" style="float: right">Read more</a>
-<!--                <p class="card-length">placeholder</p>-->
-<!--                <a href="review.html" class="link-primary">More Info</a>-->
-<!--                <br>-->
-<!--                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>-->
-<!--                <a class="btn btn-primary read-more" style="float: right">Read more</a>-->
-<!--                <i class="material-icons">bookmark_border</i>-->
-                </div>
-            </div>
-        </template>
-        <div id="container" >
-            <div id="hikeCardGroup"  class="row row-cols-auto">
-
-            </div>
+<template id="hikeCardTemplate">
+    <div class="card" id="test2">
+        <img class="card-img-top">
+        <div class="card-body" id="myUL">
+            <div class="card-title">placeholder</div>
+            <a class="btn btn-primary read-more" style="float: right">Read more</a>
+            <!--                <p class="card-length">placeholder</p>-->
+            <!--                <a href="review.html" class="link-primary">More Info</a>-->
+            <!--                <br>-->
+            <!--                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>-->
+            <!--                <a class="btn btn-primary read-more" style="float: right">Read more</a>-->
+            <!--                <i class="material-icons">bookmark_border</i>-->
         </div>
+    </div>
+</template>
+<div id="container" >
+    <div id="hikeCardGroup"  class="row row-cols-auto">
+
+    </div>
+</div>
 <!--<div class="input-group">-->
 <!--  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />-->
 <!--  <button type="button" class="btn btn-outline-primary">search</button>-->
 <!--</div>-->
 
-        <!--footer-->
-        <nav id="footerPlaceholder"></nav>
+<!--footer-->
+<nav id="footerPlaceholder"></nav>
 
-        <!---------------------------------------------->
-        <!-- Our JavaScript functions go here  -->
-        <!---------------------------------------------->
-        <script src="../scripts/firebaseAPI_TEAM10.js"></script>
-        <script src="../scripts/skeleton.js"></script>
-        <script src="../scripts/search.js"></script>
+<!---------------------------------------------->
+<!-- Our JavaScript functions go here  -->
+<!---------------------------------------------->
+<script src="../scripts/firebaseAPI_TEAM10.js"></script>
+<script src="../scripts/skeleton.js"></script>
+<script src="../scripts/search.js"></script>
 
-    </body>
+</body>
 
 </html>
