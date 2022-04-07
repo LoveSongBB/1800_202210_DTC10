@@ -1,5 +1,9 @@
 /* Make new CSS style page for logged and non-logged pages */
 
+p {
+
+    color: black !important;
+}
 
 .header-color {
     box-shadow: none !important;
@@ -8,32 +12,37 @@
 
 #logo-text-logged{
 
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 
 #logo-text-logged:hover{
 
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 #logo-text{
 
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 
 #logo-text:hover{
 
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 .button-color {
 
-    background-color: #ED2939;
+    background-color: #ED2939 !important;
+}
+
+.btn-outline-light:hover {
+
+        background-color: #f80c35 !important;
 }
 
 body {
@@ -43,15 +52,33 @@ body {
 
 .footer {
 
-    background-color: #FFEDDA;
+    background-color: #FFEDDA !important;
 }
 
 .nav-link{
 
-    text-align: center;
+    text-align: center !important;
 }
 
 .navbar-link{
 
-    color: black;
+    color: black !important;
+}
+
+.navbar {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 100;
+}
+
+.mdl-layout__content {
+
+   background-color: #FFEDDA !important;
+}
+
+.mdl-color--grey-100 {
+
+    background-color: #FFEDDA !important;
 }
