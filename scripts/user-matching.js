@@ -155,7 +155,6 @@ function clickProfileButtonOnCard() {
 function clickAddFriendButtonOnCard() {
     // Add friend from usermatching
     let clickedCardUserId = $(this).val()
-    let userToAddToFriendList;
 
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
@@ -166,6 +165,7 @@ function clickAddFriendButtonOnCard() {
                 }, {
                     merge: true
                 })
+                window.alert(`You have added ${user.data().name} as a friend!`);
             }
         })
     })
