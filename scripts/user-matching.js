@@ -32,7 +32,7 @@ function compareAnswerLists(yourUserAnswerList, otherUserAnswerList) {
 
 function matchUser() {
     var userMatches = {};
-    
+
 
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
@@ -133,12 +133,11 @@ function matchUser() {
                 var userName = user.data().name
                 var userIdToDisplay = `userID: ${userId}`
 
-                console.log(userName);
+                // console.log(userName);
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
-                testUserMatchesCard.querySelector('.card-text').innerHTML = userIdToDisplay;
                 testUserMatchesCard.querySelector('#profile-button').value = userId;
-
+                testUserMatchesCard.querySelector('#add-friend-button').value = userId;
                 userMatchesCardGroup.appendChild(testUserMatchesCard);
 
                 buttonValue += 1;
@@ -153,13 +152,30 @@ function clickProfileButtonOnCard() {
     window.location.href = "/html/user-matched-profile.html";
 }
 
-function clickFriendButtonOnCard() {
-    window.location.href="/html/friendlist.html"
+function clickAddFriendButtonOnCard() {
+    // Add friend from usermatching
+    let clickedCardUserId = $(this).val()
+
+    db.collection('users').get().then(querySnapshot => {
+        querySnapshot.forEach(user => {
+            // console.log(`userId = ${user.id}, clickedCardUserId = ${clickedCardUserId}`);
+            if (user.id == clickedCardUserId) {
+                currentUser.set({
+                    friendlist: firebase.firestore.FieldValue.arrayUnion(clickedCardUserId)
+                }, {
+                    merge: true
+                })
+                window.alert(`You have added ${user.data().name} as a friend!`);
+            }
+        })
+    })
+
+    // window.location.href = "/html/friendlist.html"
 }
 
 function setup() {
     $("body").on('click', '#profile-button', clickProfileButtonOnCard);
-    $("body").on('click', '#add-friend-button', clickFriendButtonOnCard);
+    $("body").on('click', '#add-friend-button', clickAddFriendButtonOnCard);
 }
 
 $(document).ready(setup);
