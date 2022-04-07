@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Chat | ChitChat</title>
-        <meta name="Chitchat project" content="my bcit project">
+<head>
+    <title>Chat | ChitChat</title>
+    <meta name="Chitchat project" content="my bcit project">
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap Library CSS JS CDN go here -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
-        <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <!-------------------------------------------->
-        <!-- Other libraries and styles of your own -->
-        <!-------------------------------------------->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/profile.css">
-    </head>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+</head>
 
-    <body>
+<body>
 
-    <nav id="navbarPlaceholderLogged"></nav>
+<nav id="navbarPlaceholderLogged"></nav>
 
 
-        <div class="container"  id="test">
+<div class="container"  id="test">
 
-        <br>
-        <h1>Information of <span id="HikeName"></span></h1>
-        <div id="details-go-here"></div>
-            <div id="bio-div">
+    <br>
+    <h1>Information of <span id="HikeName"></span></h1>
+    <div id="details-go-here"></div>
+    <div id="bio-div">
 
-            </div>
-<template id="hikeCardTemplate">
+    </div>
+    <template id="hikeCardTemplate">
         <div class="card">
-                <i class="material-icons">bookmark_border</i>
-            </div>
-</template>
+            <i class="material-icons">bookmark_border</i>
+        </div>
+    </template>
     <div class="container">
-        <h1>Some popular hikes</h1>
+        <h1>Add Friend </h1>
         <!-- Here is container for cards  -->
         <div class="container">
             <div id="hikeCardGroup" class="row row-cols-auto">
             </div>
         </div>
     </div>
-        <br>
-        <br>
-    </div>
+    <br>
+    <br>
+</div>
 
 <!--    <div class="container emp-profile">-->
 <!--                <form method="post">-->
@@ -178,13 +178,13 @@
 <!--                </form>-->
 <!--    </div>-->
 
-        <nav id="footerPlaceholder"></nav>
+<nav id="footerPlaceholder" aria-label="footer"></nav>
 
-        <script src="../scripts/firebaseAPI_TEAM10.js"></script>
-        <script src="../scripts/skeleton.js"></script>
-        <script src="../scripts/other-user-profile.js"></script>
-        <script src="../scripts/signout.js"></script>
+<script src="../scripts/firebaseAPI_TEAM10.js"></script>
+<script src="../scripts/skeleton.js"></script>
+<script src="../scripts/other-user-profile.js"></script>
+<script src="../scripts/signout.js"></script>
 
-    </body>
+</body>
 
 </html>

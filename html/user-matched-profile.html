@@ -1,164 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Chat | ChitChat</title>
-        <meta name="Chitchat project" content="my bcit project">
+<head>
+    <title>Chat | ChitChat</title>
+    <meta name="Chitchat project" content="my bcit project">
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap Library CSS JS CDN go here -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
-        <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <!-------------------------------------------->
-        <!-- Other libraries and styles of your own -->
-        <!-------------------------------------------->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/profile.css">
-    </head>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+</head>
 
-    <body>
+<body>
 
-    <nav id="navbarPlaceholderLogged"></nav>
+<nav id="navbarPlaceholderLogged"></nav>
 
-    <div class="container emp-profile">
-                <form method="post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="profile-img">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                                     alt=""/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="profile-head">
-                                        <h5>
-                                            <span id="name-profile"></span>
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                         alt=""/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+                        <span id="name-profile"></span>
 
-                                        </h5>
-                                        <h2 id="h2-name"></h2>
-                                        <h6>
-                                            Web Developer and Designer
-                                        </h6>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                           role="tab" aria-controls="home" aria-selected="true">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                           role="tab" aria-controls="profile" aria-selected="false">Interests</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-success">Add Friend</button>
+                    </h5>
+                    <h2 id="h2-name"></h2>
+                    <h6>
+                        Web Developer and Designer
+                    </h6>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                               role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                               role="tab" aria-controls="profile" aria-selected="false">Interests</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-success">Add Friend</button>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>Social Links</p>
+                        <a href="">lorem</a><br/>
+                        <a href="">lorem</a><br/>
+                        <a href="">lorem</a>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="profile-work">
-                                <p>Social Links</p>
-                                <a href="">lorem</a><br/>
-                                <a href="">lorem</a><br/>
-                                <a href="">lorem</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label><h3>User ID</h3></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p id="paragraph-user-id"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Occupation</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p> ADD TO EDIT PROFILE BRYAN </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="tab-content profile-tab" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label><h3>User ID</h3></label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p id="paragraph-user-id"></p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Occupation</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p> ADD TO EDIT PROFILE BRYAN </p>
-                                                </div>
-                                            </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Ski</label>
                                 </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Ski</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Novice</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Snowboard</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Familiar</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Speed Skating</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Lorem</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Figure Skating</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Expert</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Bobsleigh</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Lorem</p>
-                                                </div>
-                                            </div>
-                                    <div class="row"><div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Bio</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <p>Novice</p>
                                 </div>
-                </form>
-    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Snowboard</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Familiar</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Speed Skating</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Lorem</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Figure Skating</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Expert</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Bobsleigh</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Lorem</p>
+                                </div>
+                            </div>
+                            <div class="row"><div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Bio</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+    </form>
+</div>
 
-        <nav id="footerPlaceholder"></nav>
+<nav id="footerPlaceholder" aria-label="footer"></nav>
 
-        <script src="../scripts/firebaseAPI_TEAM10.js"></script>
-        <script src="../scripts/skeleton.js"></script>
-        <script src="../scripts/user-match-profile.js"></script>
-        <script src="../scripts/signout.js"></script>
+<script src="../scripts/firebaseAPI_TEAM10.js"></script>
+<script src="../scripts/skeleton.js"></script>
+<script src="../scripts/user-match-profile.js"></script>
+<script src="../scripts/signout.js"></script>
 
-    </body>
+</body>
 
 </html>

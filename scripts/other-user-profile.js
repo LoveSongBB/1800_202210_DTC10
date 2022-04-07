@@ -44,7 +44,7 @@ function showDetails() {
     let hikeName = params.searchParams.get("hikeName");   //parse "collection"
 
     let message = "Profile: " + hikeName;        //build message to display
-//    message += " &nbsp | Document id is:  " + id;
+//    message += " &nbsp | Document id is:  " + id;S
 
     document.getElementById("HikeName").innerHTML = hikeName;
     document.getElementById("details-go-here").innerHTML = message;
@@ -66,7 +66,7 @@ function showDetails() {
         });
     })
     .catch((error) => {
-        console.log("Error getting documents: ", error);
+        console.log("Error getting data: ", error);
     });
 
 }
