@@ -67,7 +67,7 @@ function getBookmarks(user) {
                     size = snap.size;
                     queryData = snap.docs;
                     var doc = queryData[0].data();
-                    room_number = doc.room_number; //gets the name field
+                    var room_number = doc.room_number; //gets the name field
                     // var hikeID = doc.id; //gets the unique ID field
                     var userID = doc.yourcode; //gets the length field
                     var youruserId = doc.mycode; //gets the length field
@@ -134,17 +134,18 @@ function make_room() {
 
                     db.collection("eachRooms").add({
                         room_number: room_number,
-                        members: firebase.firestore.FieldValue.arrayUnion(userID, youruserId),
+                        members: firebase.firestore.FieldValue.arrayUnion(userID, youruserId),                                          
+                        MyuserID: userID,
                         mycode: mycode,
-                        yourcode: ID,
-                        userID: userID,
+                        Myemail: userEmail,
+                        yourname: ID,        
                         youruserId: youruserId,
-                        userEmail: userEmail,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         saveBookmark(room_number)
                         saveroomnumber_count(room_number)
                         getroomnb(room_number)
+                        getcounterpartid(youruserId) 
                     })
                     .then(() => {
                         console.log("여기까지는 옴")
@@ -213,4 +214,9 @@ $("#CardTemplate").on(".card-title", passroomnumber)
 
 function getroomnb(id) {
     localStorage.setItem('roomnumber', id);
+}
+
+
+function getcounterpartid(id) {
+    localStorage.setItem('counterpartname', id);
 }
