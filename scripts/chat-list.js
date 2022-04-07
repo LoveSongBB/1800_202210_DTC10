@@ -11,8 +11,8 @@ firebase.auth().onAuthStateChanged(user => {
         console.log(currentUser);
 
         // the following functions are always called when someone is logged in
-        read_display_Quote();
-        insertName();
+//        read_display_Quote();
+//        insertName();
         getBookmarks(user)
 
         // populateCardsDynamically()
@@ -25,34 +25,34 @@ firebase.auth().onAuthStateChanged(user => {
 });
 
 
-// demo 09
-function read_display_Quote() {
-    //console.log("inside the function")
+//// demo 09
+//function read_display_Quote() {
+//    //console.log("inside the function")
+//
+//    //get into the right collection
+//    db.collection("quotes").doc("tuesday")
+//        .onSnapshot(function (abcdefg) {
+//            //console.log(tuesdayDoc.data());
+//            document.getElementById("quote-goes-here").innerHTML = abcdefg.data().quote;
+//        })
+//}
+//
+//read_display_Quote();
+//
 
-    //get into the right collection
-    db.collection("quotes").doc("tuesday")
-        .onSnapshot(function (abcdefg) {
-            //console.log(tuesdayDoc.data());
-            document.getElementById("quote-goes-here").innerHTML = abcdefg.data().quote;
-        })
-}
-
-read_display_Quote();
 
 // Insert name function using the global variable "currentUser"
-
-// Insert name function using the global variable "currentUser"
-function insertName() {
-    currentUser.get().then(userDoc => {
-        //get the user name
-        var user_Name = userDoc.data().name;
-        console.log(user_Name);
-        $("#name-goes-here").text(user_Name); //jquery
-        // document.getElementByID("name-goes-here").innetText=user_Name;
-    })
-}
-
-insertName();
+//function insertName() {
+//    currentUser.get().then(userDoc => {
+//        //get the user name
+//        var user_Name = userDoc.data().name;
+//        console.log(user_Name);
+//        $("#name-goes-here").text(user_Name); //jquery
+//        // document.getElementByID("name-goes-here").innetText=user_Name;
+//    })
+//}
+//
+//insertName();
 
 
 function getBookmarks(user) {
@@ -165,7 +165,7 @@ function make_room() {
 
 }
 
-// Add room number to users collection 
+// Add room number to users collection
 function saveBookmark(hikeID) {
     currentUser.set({
             group: firebase.firestore.FieldValue.arrayUnion(hikeID)
