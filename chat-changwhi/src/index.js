@@ -247,7 +247,7 @@ console.log("RoomNumber =" + test)
      // Show user's profile and sign-out button.
      userNameElement.removeAttribute('hidden');
      userPicElement.removeAttribute('hidden');
-     signOutButtonElement.removeAttribute('hidden');
+//     signOutButtonElement.removeAttribute('hidden');
  
      // Hide sign-in button.
      signInButtonElement.setAttribute('hidden', 'true');
@@ -259,7 +259,7 @@ console.log("RoomNumber =" + test)
      // Hide user's profile and sign-out button.
      userNameElement.setAttribute('hidden', 'true');
      userPicElement.setAttribute('hidden', 'true');
-     signOutButtonElement.setAttribute('hidden', 'true');
+//     signOutButtonElement.setAttribute('hidden', 'true');
  
      // Show sign-in button.
      signInButtonElement.removeAttribute('hidden');
@@ -413,14 +413,14 @@ console.log("RoomNumber =" + test)
  var mediaCaptureElement = document.getElementById('mediaCapture');
  var userPicElement = document.getElementById('user-pic');
  var userNameElement = document.getElementById('user-name');
- var signInButtonElement = document.getElementById('sign-in');
- var signOutButtonElement = document.getElementById('sign-out');
+// var signInButtonElement = document.getElementById('sign-in');
+// var signOutButtonElement = document.getElementById('sign-out');
  var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
  // Saves message on form submit.
  messageFormElement.addEventListener('submit', onMessageFormSubmit);
- signOutButtonElement.addEventListener('click', signOutUser);
- signInButtonElement.addEventListener('click', signIn);
+// signOutButtonElement.addEventListener('click', signOutUser);
+// signInButtonElement.addEventListener('click', signIn);
  
  // Toggle for the button.
  messageInputElement.addEventListener('keyup', toggleButton);
