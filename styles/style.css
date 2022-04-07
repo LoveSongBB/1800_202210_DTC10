@@ -65,10 +65,19 @@ body {
     color: black !important;
 }
 
-.navbar {
-  overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  z-index: 100;
+
+.mdl-layout__content {
+
+   background-color: #FFEDDA !important;
+}
+
+.mdl-color--grey-100 {
+
+    background-color: #FFEDDA !important;
+}
+
+
+.body-padding-top{
+
+    padding-top: 100px;
 }
