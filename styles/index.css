@@ -62,6 +62,31 @@
 }
 
 #bio-title{
-
+    font-weight: bold;
     text-align: center;
+}
+
+body{
+
+    padding-bottom: 85px;
+}
+
+.feature {
+
+    padding: 20px;
+}
+
+.padding-index{
+
+    padding:  15px !important;
+}
+
+.bio-card{
+
+    border-radius: 15px;
+}
+
+.index-bio-button{
+
+    background-color: #FF2442 !important;
 }
