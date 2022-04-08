@@ -133,14 +133,17 @@ function matchUser() {
                 var userName = user.data().name
                 var userBio = user.data().bio
                 var userIdToDisplay = `userID: ${userId}`
+                var hikeID = user.data().userID;
 
                 // console.log(userName);
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
 //              testUserMatchesCard.querySelector('#bio-card').value = userBio;
                 testUserMatchesCard.querySelector('.bio-card').innerHTML = userBio;
-                testUserMatchesCard.querySelector('#profile-button').value = userId;
+//                testUserMatchesCard.querySelector('#profile-button').value = userId;
                 testUserMatchesCard.querySelector('#add-friend-button').value = userId;
+                testUserMatchesCard.querySelector('a').onclick = () => setUser(userID);
+                testUserMatchesCard.querySelector('.read-more').href = "../html/user-matched-profile.html?userName="+userName +"&id=" + hikeID;
                 userMatchesCardGroup.appendChild(testUserMatchesCard);
 
                 buttonValue += 1;
@@ -152,7 +155,6 @@ function matchUser() {
 function clickProfileButtonOnCard() {
     let clickedCardUserId = $(this).val();
     localStorage.setItem('goToUserIdProfile', clickedCardUserId)
-    window.location.href = "/html/user-matched-profile.html";
 }
 
 function clickAddFriendButtonOnCard() {
@@ -179,6 +181,10 @@ function clickAddFriendButtonOnCard() {
 function setup() {
     $("body").on('click', '#profile-button', clickProfileButtonOnCard);
     $("body").on('click', '#add-friend-button', clickAddFriendButtonOnCard);
+}
+
+function setUser(userID){
+    localStorage.setItem ('userID', userID);
 }
 
 $(document).ready(setup);
