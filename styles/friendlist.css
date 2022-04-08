@@ -1,0 +1,22 @@
+#friendlist-title {
+
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+
+.card {
+
+    width: 100%;
+}
+
+.chat-button{
+
+
+    background-color: #FF2442 !important;
+}
+
+#profile-button{
+    color: black;
+    background-color: #FFB830 !important;
+}

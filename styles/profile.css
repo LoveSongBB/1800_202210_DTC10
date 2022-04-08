@@ -26,3 +26,59 @@ label {
 
     color: black !important;
 }
+
+#edit-profile-button{
+        margin: 20px;
+    background-color: #FFB830 !important;
+
+}
+
+#edit-button-text{
+        margin: 10px;
+    color: white;
+}
+
+.profile-container{
+    border-radius: 10px;
+    width:95%;
+    margin: 0 !important;
+    padding: 0 !important;
+}'
+
+#edit-profile-div{
+
+        text-align: end !important;
+'
+}
+
+#profile-title{
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+
+#logo-img {
+
+    padding-bottom: 15px;
+}
+
+.profile-info-div{
+    margin: 0 !important;
+    padding: 15px 0 10%  0 !important;
+    width: 95%;
+}
+
+#profile-button-colour{
+
+     background-color: #FFB830 !important;
+}
+
+#profile-button{
+    opacity: 1;
+     color: black !important;
+}
+
+#text-color-profile{
+
+    color: black;
+}

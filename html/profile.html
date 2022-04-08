@@ -55,64 +55,57 @@
 </head>
 
 <body>
-
+<nav id="navbarPlaceholderTop"></nav>
 <nav id="navbarPlaceholderLogged" aria-label="navbar"></nav>
 <main class="container body-padding-top">
-        <div class="col-md-2">
-            <button type="button" class="btn btn-outline-light me-2"><a href="../html/edit-profile.html">Edit Profile></a>
-            </button>
-        </div>
-        <div class="col-md-6">
-            <div class="profile-head">
-                <h1>
-                    <span id="name-profile"></span>
-
-                </h1>
-
-<div class="container-fluid bg-light text-dark p-5">
-        <div class="container py-3">
-
-            <img id="logo-img" src="../images/profile-man.jpg" width='150' height='225' />
-            <input type="file" id="mypic-input" accept="image/*" />
-        </div>
-
-</div>
+    <div class="col-md-2 " id="edit-profile-div" style="text-align: end;">
+        <button type="button" id="edit-profile-button" class="btn btn-outline-light me-2"><a id="edit-button-text" href="../html/edit-profile.html">Edit Profile</a>
+        </button>
+    </div>
+    <div class="col-md-6 container ">
+        <div class="profile-head">
 
 
-                        <h5>About</h5>
-                <h6>
-                    <span id="bio-profile"></span>
-                </h6>
+            <div class="container-fluid bg-light text-dark p-5 profile-container">
+                <div class="container py-3">
+                    <h1 id="profile-title">
+                        <span id="name-profile"></span>
+
+                    </h1>
+                    <img id="logo-img" src="../images/profile-man.jpg" width='150' height='225' />
+                    <input type="file" id="mypic-input" accept="image/*" />
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="row bg-light profile-info-div container">
+
+        <h5>About</h5>
+        <h6>
+            <span id="bio-profile"></span>
+        </h6>
+        <div class="col-md-6">
+            <p></p>
+        </div>
 
 
+        <h5 class="col-md-6">
+            <span>Occupation</span>
+        </h5>
+        <h6 class="col-md-6">
+            <span id="occ-profile"></span>
+        </h6>
+      </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Preferred name</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Occupation</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p> <span id="occ-profile"></span></p>
-                        </div>
-                    </div>
 
 </main>
-    <nav id="footerPlaceholder" aria-label="footer"></nav>
+<nav id="footerPlaceholder" aria-label="footer"></nav>
 
-    <script src="../scripts/firebaseAPI_TEAM10.js"></script>
-    <script src="../scripts/skeleton.js"></script>
-    <script src="../scripts/profile.js"></script>
-    <script src="../scripts/signout.js"></script>
+<script src="../scripts/firebaseAPI_TEAM10.js"></script>
+<script src="../scripts/skeleton.js"></script>
+<script src="../scripts/profile.js"></script>
+<script src="../scripts/signout.js"></script>
 
 </body>
 

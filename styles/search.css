@@ -20,6 +20,7 @@ input {
   background-color: white;
   padding: .5rem;
   width: 80%;
+  margin-bottom: 15px;
 }
 
 .card > .header {
@@ -69,6 +70,20 @@ input {
 }
 
 #hikeCardGroup {
-
+    padding-top: 15px;
     justify-content: center;
+}
+
+
+.body-padding-top{
+
+    padding-top: 38px;
+    padding-bottom: 30%;
+}
+
+#searchButton{
+
+    background-color: #FF2442 !important;
+    color: black;
+    border-color: #FF2442;
 }

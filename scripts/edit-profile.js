@@ -81,8 +81,8 @@ function insertName() {
                 var user_Name = userDoc.data().name;
                 var bio_Text= userDoc.data().bio;
                 console.log(user_Name);
-                document.getElementById("name-profile").innerHTML = user_Name;
-                document.getElementById("bio-profile").innerHTML = bio_Text;
+//                document.getElementById("name-profile").innerHTML = user_Name;
+//                document.getElementById("bio-profile").innerHTML = bio_Text;
                 // $("#name-main").text(user_Name);
             })
             console.log(user.uid); // give id who user who logged in

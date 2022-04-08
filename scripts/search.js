@@ -30,9 +30,11 @@ db.collection("users").where("name", ">=", x).limit(5)
             // doc.data() is never undefined for query doc snapshots
             var userName = doc.data().name;
             var hikeID = doc.data().userID;
+            var userBio = doc.data().bio;
             console.log(doc.userID, " => ", doc.data());
                 let userCard = userCardTemplate.content.cloneNode(true);
                 userCard.querySelector('.card-title').innerHTML = userName;
+                userCard.querySelector('.bio-search').innerHTML = userBio;
                  //gets the unique ID field
               userCard.querySelector('a').onclick = () => setHikeData(hikeID);
               userCard.querySelector('.read-more').href = "../html/other-user-profile.html?hikeName="+userName +"&id=" + hikeID;
