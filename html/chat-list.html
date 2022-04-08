@@ -60,12 +60,10 @@
 <!------------------------------>
 
 <!-- our own navbar goes here -->
-<nav id="navbarPlaceholderLogged" aria-label="navbar"></nav>
-<main class="container body-padding-top">
-<button id="make_chat" type="button" onclick="make_room()"> Create Chatting room </button>
-<input id="make_chat_input" style="margin-top: 10px;" type="text" placeholder="Type user name">
+<nav id="navbarPlaceholderLogged"></nav>
 
-<div id="counter">Your part is .. </div>
+<button id="make_chat" type="button" onclick="make_room_phase_1_get_counterpart()"> Create Chatting room </button>
+<input id="make_chat_input" style="margin-top: 10px;" type="text" placeholder="Type user name">
 
 <div class="container">
     <h1>Chat List</h1>
@@ -89,11 +87,10 @@
     </div>
 </template>
 
-
 <div id="hiddenroomnumbertransfer" hidden>
 
 </div>
-</main>
+
 <!-- our own footer goes here-->
 <nav id="footerPlaceholder" aria-label="footer"></nav>
 
@@ -102,7 +99,7 @@
 <!---------------------------------------------->
 <script src="../scripts/firebaseAPI_TEAM10.js"></script>
 <script src="../scripts/skeleton.js"></script>
-<script src="../scripts/chat-list.js"></script>
+<script src="/scripts/chat-list.js"></script>
 
 </body>
 
