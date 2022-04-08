@@ -87,13 +87,34 @@ body {
     background-color: #FFEDDA !important;
 }
 
-/*
-.body-padding-top{
 
-    padding-top: 100px;
-} */
+
 
 #top-logo{
 
     text-align:center !important;
+}
+
+.bottom-navbar {
+
+        padding-left: 25px;
+    padding-right: 25px;
+}
+
+#search-nav {
+    margin-bottom: 10px;
+    color: black !important;
+      border: 2px solid black;
+  border-radius: 5px;
+}
+
+
+#signout-button {
+
+    color: black !important;
+}
+
+.signout-nav{
+
+    border-radius: 5px !important;
 }

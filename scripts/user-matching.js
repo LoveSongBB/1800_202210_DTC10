@@ -137,7 +137,8 @@ function matchUser() {
                 // console.log(userName);
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
-//                testUserMatchesCard.querySelector('#bio-card').value = userBio;
+//              testUserMatchesCard.querySelector('#bio-card').value = userBio;
+                testUserMatchesCard.querySelector('.bio-card').innerHTML = userBio;
                 testUserMatchesCard.querySelector('#profile-button').value = userId;
                 testUserMatchesCard.querySelector('#add-friend-button').value = userId;
                 userMatchesCardGroup.appendChild(testUserMatchesCard);
