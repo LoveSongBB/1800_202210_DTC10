@@ -131,11 +131,13 @@ function matchUser() {
 
             if (matchedUserIDArray.includes(userId)) {
                 var userName = user.data().name
+                var userBio = user.data().bio
                 var userIdToDisplay = `userID: ${userId}`
 
                 // console.log(userName);
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
+//                testUserMatchesCard.querySelector('#bio-card').value = userBio;
                 testUserMatchesCard.querySelector('#profile-button').value = userId;
                 testUserMatchesCard.querySelector('#add-friend-button').value = userId;
                 userMatchesCardGroup.appendChild(testUserMatchesCard);
