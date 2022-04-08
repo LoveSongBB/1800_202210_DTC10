@@ -11,8 +11,8 @@ firebase.auth().onAuthStateChanged(user => {
         console.log(currentUser);
 
         // the following functions are always called when someone is logged in
-//        read_display_Quote();
-//        insertName();
+        read_display_Quote();
+        insertName();
         getBookmarks(user)
 
         // populateCardsDynamically()
@@ -20,39 +20,37 @@ firebase.auth().onAuthStateChanged(user => {
     } else {
         // No user is signed in.
         console.log("No user is signed in");
-        window.location.href = "login.html";
+        window.location.href = "/login.html";
     }
 });
 
 
-//// demo 09
-//function read_display_Quote() {
-//    //console.log("inside the function")
-//
-//    //get into the right collection
-//    db.collection("quotes").doc("tuesday")
-//        .onSnapshot(function (abcdefg) {
-//            //console.log(tuesdayDoc.data());
-//            document.getElementById("quote-goes-here").innerHTML = abcdefg.data().quote;
-//        })
-//}
-//
-//read_display_Quote();
-//
+// demo 09
+function read_display_Quote() {
+    //console.log("inside the function")
+    db.collection("quotes").doc("tuesday")
+        .onSnapshot(function (abcdefg) {
+            //console.log(tuesdayDoc.data());
+            document.getElementById("quote-goes-here").innerHTML = abcdefg.data().quote;
+        })
+}
 
+read_display_Quote();
 
 // Insert name function using the global variable "currentUser"
-//function insertName() {
-//    currentUser.get().then(userDoc => {
-//        //get the user name
-//        var user_Name = userDoc.data().name;
-//        console.log(user_Name);
-//        $("#name-goes-here").text(user_Name); //jquery
-//        // document.getElementByID("name-goes-here").innetText=user_Name;
-//    })
-//}
-//
-//insertName();
+
+// Insert name function using the global variable "currentUser"
+function insertName() {
+    currentUser.get().then(userDoc => {
+        //get the user name
+        var user_Name = userDoc.data().name;
+        console.log(user_Name);
+        $("#name-goes-here").text(user_Name); //jquery
+        // document.getElementByID("name-goes-here").innetText=user_Name;
+    })
+}
+
+insertName();
 
 
 function getBookmarks(user) {
@@ -92,35 +90,16 @@ function getBookmarks(user) {
 
 
 function make_room() {
-    // 추후 저장할수 있게 도와주는 자료
-    // let Title = document.getElementById("title").value;
-    // let Level = document.getElementById("level").value;
-    // let Season = document.getElementById("season").value;
     ID = document.getElementById("make_chat_input").value;
-    // let Flooded = document.querySelector('input[name="flooded"]:checked').value;
-    // let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
-    // console.log(Title, Level, Season, Description, Flooded, Scrambled);
-    // let findID = localStorage.getItem("ID"); 안되면 이거해봐
     db.collection("users").where("name", "==", ID)
         .get()
-        // 이것도 롤백
         .then(queryHike => {
-            //see how many results you have got from the query
-            // get the documents of query
             Hikes = queryHike.docs;
-
-            // We want to have one document per hike, so if the the result of 
-            //the query is more than one, we can check it right now and clean the DB if needed.
             var thisHike = Hikes[0].data();
             youruserId = thisHike.userID;
             document.getElementById("counter").innerHTML = `<h1 id="title">제목${youruserId}</h1>`;
         })
-
-
-
-    //.where  로컬스토리지에서 같은 ID를 찾아서 가져온다                     id
     db.collection("users")
-    //define a document for a user with UID as a document ID
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
@@ -130,43 +109,33 @@ function make_room() {
                 .then(userDoc => {
                     var userEmail = userDoc.data().email;
                     var mycode = userDoc.data().name;
-                    room_number = db.collection("eachRooms").doc().id
+                    var room_number = db.collection("eachRooms").doc().id
 
                     db.collection("eachRooms").add({
-                        room_number: room_number,
-                        members: firebase.firestore.FieldValue.arrayUnion(userID, youruserId),                                          
-                        MyuserID: userID,
-                        mycode: mycode,
-                        Myemail: userEmail,
-                        yourname: ID,        
-                        youruserId: youruserId,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() => {
-                        saveBookmark(room_number)
-                        saveroomnumber_count(room_number)
-                        getroomnb(room_number)
-                        getcounterpartid(youruserId) 
-                    })
-                    .then(() => {
-                        console.log("여기까지는 옴")
-                        window.location.href = "../chat-changwhi/public/index.html"; //new line added
-
-                   
-                    })
-
+                            room_number: room_number,
+                            members: firebase.firestore.FieldValue.arrayUnion(userID, youruserId),
+                            mycode: mycode,
+                            yourcode: ID,
+                            userID: userID,
+                            youruserId: youruserId,
+                            userEmail: userEmail,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        }).then(() => {
+                            saveroomnumber_my(room_number)
+                            saveroomnumber_count(room_number)
+                        })
+                        .then(() => {
+                            console.log("여기까지는 옴")
+                            window.location.href = "../chat-changwhi/public/index.html"; //new line added
+                        })
                 })
-
         } else {
-            // No user is signed in.
         }
     });
-
-
-
 }
 
-// Add room number to users collection
-function saveBookmark(hikeID) {
+// Add room number to users collection 
+function saveroomnumber_my(hikeID) {
     currentUser.set({
             group: firebase.firestore.FieldValue.arrayUnion(hikeID)
         }, {
@@ -214,9 +183,4 @@ $("#CardTemplate").on(".card-title", passroomnumber)
 
 function getroomnb(id) {
     localStorage.setItem('roomnumber', id);
-}
-
-
-function getcounterpartid(id) {
-    localStorage.setItem('counterpartname', id);
 }
