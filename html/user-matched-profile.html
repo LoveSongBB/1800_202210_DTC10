@@ -55,52 +55,35 @@
 </head>
 
 <body>
-
+<nav id="navbarPlaceholderTop"></nav>
 <nav id="navbarPlaceholderLogged" aria-label="navbar"></nav>
+
+
 <main class="container body-padding-top">
-        <div class="col-md-6">
-            <div class="profile-head">
-                <h1>
-                    <span id="name-profile"></span>
+<div class="container"  id="test">
 
-                </h1>
+    <br>
+    <h1>Information of <span id="HikeName"></span></h1>
+    <div id="details-go-here"></div>
+    <div id="bio-div">
 
-<div class="container-fluid bg-light text-dark p-5">
-        <div class="container py-3">
-
-            <img id="logo-img" src="../images/profile-man.jpg" width='150' height='225' />
-            <input type="file" id="mypic-input" accept="image/*" />
+    </div>
+    <template id="hikeCardTemplate">
+        <div class="card">
+            <i class="material-icons">person_add</i>
         </div>
-
-</div>
-
-
-                        <h5>About</h5>
-                <h6>
-                    <span id="bio-profile"></span>
-                </h6>
+    </template>
+    <div class="container">
+        <h1>Add Friend </h1>
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="hikeCardGroup" class="row row-cols-auto">
             </div>
         </div>
-
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Preferred name</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Occupation</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p> <span id="occ-profile"></span></p>
-                        </div>
-                    </div>
+    </div>
+    <br>
+    <br>
+</div>
 
 </main>
     <nav id="footerPlaceholder" aria-label="footer"></nav>
