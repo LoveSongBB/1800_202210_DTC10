@@ -81,8 +81,13 @@ body {
     background-color: #FFEDDA !important;
 }
 
-
+/*
 .body-padding-top{
 
     padding-top: 100px;
+} */
+
+#top-logo{
+
+    text-align:center !important;
 }
