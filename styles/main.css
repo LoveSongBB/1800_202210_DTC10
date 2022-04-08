@@ -4,11 +4,46 @@
 }
 
 .card {
-
+    margin-bottom: 10px;
     width: 80% !important;
 }
 
 #main-match-title{
-
+    padding: 20px 20px 20px 8px;
     width: 80%;
+    margin-left: 8%;
+    border-radius: 10px;
+    font-weight: bold;s
+}
+
+#user-match-button{
+    margin-bottom: 25px !important;
+    margin-left: 35px !important;
+    background-color: #FF2442 !important;
+}
+
+#welcome-main {
+    font-weight: bold;
+    padding: 15px;
+    color: black;
+}
+
+#feature-group{
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+#feature-event{
+     border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+#add-friend-button{
+
+    background-color: #FFB830 !important;
+}
+
+#profile-button{
+
+    background-color: #FF2442 !important;
 }
