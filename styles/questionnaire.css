@@ -7,3 +7,26 @@
 
     padding: 0 !important;
 }
+
+
+#get-profile{
+background-color: #FF2442 !important;
+
+}
+
+#question-back-button{
+border-color: white;
+color: white;
+background-color: #FFB830 !important;
+margin-bottom: 15px;
+}
+
+#left_side_option{
+
+    margin-bottom: 15px !important;
+}
+
+#right_side_option{
+
+    margin-top: 15px !important;
+}
