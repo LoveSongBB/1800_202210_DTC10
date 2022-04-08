@@ -198,40 +198,6 @@ function onMessageFormSubmit(e) {
   }
 }
 
-async function saveMessagingDeviceToken() {
-  // TODO 10: Save the device token in Cloud Firestore
-  try {
-    const currentToken = await getToken(getMessaging());
-    if (currentToken) {
-      console.log('Got FCM device token:', currentToken);
-      // Saving the Device Token to Cloud Firestore.
-      const tokenRef = doc(getFirestore(), 'fcmTokens', currentToken);
-      await setDoc(tokenRef, { uid: getAuth().currentUser.uid });
-
-      // This will fire when a message is received while the app is in the foreground.
-      // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
-      onMessage(getMessaging(), (message) => {
-        console.log(
-          'New foreground notification from Firebase Messaging!',
-          message.notification
-        );
-      });
-    } else {
-      // Need to request permissions to show notifications.
-      requestNotificationsPermissions();
-    }
-  } catch(error) {
-    console.error('Unable to get messaging token.', error);
-  };
-
-}
-
-async function requestNotificationsPermissions() {
-  // TODO 11: Request permissions to send notifications.
-}
-
-
-
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 function authStateObserver(user) {
   if (user) {
@@ -429,8 +395,6 @@ imageButtonElement.addEventListener('click', function (e) {
   e.preventDefault();
   mediaCaptureElement.click();
 });
-
-mediaCaptureElement.addEventListener('change', onMediaFileSelected);
 
 const firebaseAppConfig = getFirebaseConfig();
 // TODO 0: Initialize Firebase
