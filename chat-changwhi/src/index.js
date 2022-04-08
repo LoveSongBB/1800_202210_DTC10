@@ -16,7 +16,8 @@
 'use strict';
 var test1 = localStorage.getItem('roomnumber');
 var test = String(test1)
-
+var counterpartName = localStorage.getItem('name');
+alert(counterpartName)
 console.log("RoomNumber =" + test)
 import {
   initializeApp
@@ -70,6 +71,7 @@ function signOutUser() {
   // Sign out of Firebase.
   signOut(getAuth());
 }
+
 
 // Initiate firebase auth
 function initFirebaseAuth() {
@@ -207,7 +209,7 @@ function authStateObserver(user) {
     // Set the user's profile pic and name.
     userPicElement.style.backgroundImage =
       'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
-    userNameElement.textContent = userName;
+    userNameElement.textContent = counterpartName;
 
     // Show user's profile and sign-out button.
     userNameElement.removeAttribute('hidden');

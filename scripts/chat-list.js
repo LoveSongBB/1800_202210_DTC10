@@ -25,7 +25,6 @@ function read_display_Quote() {
         })
 }
 
-// Insert name function using the global variable "currentUser"
 
 // Insert name function using the global variable "currentUser"
 function insertName() {
@@ -39,12 +38,11 @@ function insertName() {
 }
 
 
-
 function getBookmarks(user) {
     db.collection("users").doc(user.uid).get()
         .then(userDoc => {
             var members = userDoc.data().group;
-
+            var logged_in_user_name = userDoc.data().name
             let CardTemplate = document.getElementById("CardTemplate");
             members.forEach(thisID => {
                 console.log(thisID);
@@ -53,26 +51,31 @@ function getBookmarks(user) {
                     queryData = snap.docs;
                     var doc = queryData[0].data();
                     var room_number = doc.room_number; //gets the name field
+            
                     // var hikeID = doc.id; //gets the unique ID field
                     var userID = doc.yourcode; //gets the length field
                     var youruserId = doc.mycode; //gets the length field
                     let newCard = CardTemplate.content.cloneNode(true);
                     newCard.querySelector('.Counterpart').innerHTML = "Chat with " + youruserId;
-                    // newCard.querySelector('.userID').innerHTML = "Member 2 : " + userID;
-                    newCard.querySelector('.link-primary').id = room_number
-                    newCard.querySelector('a').onclick = () => getroomnb(room_number);
+                    if (logged_in_user_name == doc.mycode){
+                        newCard.querySelector('.Counterpart').innerHTML = "Chat with " + userID;
+                        name_send_to_chat = userID;
+                    }
+                    else{
+                        newCard.querySelector('.Counterpart').innerHTML = "Chat with " + youruserId;
+                        name_send_to_chat = youruserId;
+                    }
+                    newCard.querySelector('a').onclick = () => getroomnb(room_number, name_send_to_chat)
+
+                    
 
 
-                    // newCard.querySelector('a').onclick = () => setHikeData(hikeID); 채팅창으로 이동하면서 채팅창 값 넘기기
-                    // newCard.querySelector('img').src = `./images/${hikeID}.jpg`;
                     hikeCardGroup.appendChild(newCard);
-
-
                 })
-
             });
         })
 }
+
 
 
 function make_room_phase_1_get_counterpart() {
@@ -115,7 +118,6 @@ function make_room_phase_2_save_room_info_onthefirebase(){
                         })
                         .then(() => {
                             getroomnb(room_number_create)
-                            console.log("여기까지는 옴")
                             window.location.href = "../chat-changwhi/public/index.html"; 
                         })
                 })
@@ -135,7 +137,6 @@ function saveroomnumber_my(hikeID) {
         });
 }
 
-
 function saveroomnumber_count(hikeID) {
     console.log(youruserId)
     db.collection("users").doc(youruserId).set({
@@ -145,31 +146,16 @@ function saveroomnumber_count(hikeID) {
         })
         .then(function () {
             console.log("Save room number to counterpart's firebase")
-
-
         })
 }
 
-
-
-
-
-function passroomnumber(expectedID) {
-    console.log("실행됨");
-    console.log(expectedID);
-    $('.hiddenroomnumbertransfer').append(`${expectedID}`)
-
-}
-
-
-var make_chat = document.getElementById('make_chat');
-
-
-
-$("#CardTemplate").on(".card-title", passroomnumber)
-
 // changwhi localsotrage to chat function
-
-function getroomnb(id) {
+function getroomnb(id, name) {
     localStorage.setItem('roomnumber', id);
+    localStorage.setItem('name', name);
+
 }
+
+
+
+
