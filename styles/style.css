@@ -10,9 +10,15 @@ p {
     color: black !important;
 }
 
+.top-nav{
+
+    padding: 0 !important;
+}
+
 .header-color {
     box-shadow: none !important;
     background-color: #3DB2FF;
+
 }
 
 #logo-text-logged{
