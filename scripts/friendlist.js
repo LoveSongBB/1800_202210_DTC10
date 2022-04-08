@@ -66,11 +66,9 @@ function populateCardsDynamically() {
 // chat creating function
 function make_room_friendslist(src) {
     // 추후 저장할수 있게 도와주는 자료
-    alert(src.id)
-
-    var ID_friendslist = document.getElementById("send_name_to_chat").innerHTML;
-
-    db.collection("users").where("name", "==", ID_friendslist)
+    var counterpartid = src.id
+    // var ID_friendslist = document.getElementById("send_name_to_chat").innerHTML;
+    db.collection("users").where("name", "==", counterpartid)
         .get()
         // 이것도 롤백
         .then(queryHike_chat => {
@@ -107,8 +105,6 @@ function make_room_friendslist(src) {
                     })
                     .then(() => {
                         window.location.href = "../chat-changwhi/public/index.html"; //new line added
-
-                   
                     })
 
                 })
@@ -154,12 +150,3 @@ populateCardsDynamically();
 function setHikeData(id){
     localStorage.setItem ('hikeID', id);
 }
-
-
-// 지울거임
-// function setup() {
-
-// $("body").on("click", "start_chat_function", make_room_friendslist)
-
-// }
-// $(document).ready(setup)
