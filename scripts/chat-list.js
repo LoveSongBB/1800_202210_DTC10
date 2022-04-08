@@ -2,21 +2,14 @@ var currentUser;
 var ID;
 var youruserId;
 
-
-
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-
         currentUser = db.collection("users").doc(user.uid); //global
         console.log(currentUser);
-
         // the following functions are always called when someone is logged in
         read_display_Quote();
-        insertName();
         getBookmarks(user)
-
         // populateCardsDynamically()
-
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -24,18 +17,13 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
-
-// demo 09
 function read_display_Quote() {
-    //console.log("inside the function")
     db.collection("quotes").doc("tuesday")
         .onSnapshot(function (abcdefg) {
             //console.log(tuesdayDoc.data());
             document.getElementById("quote-goes-here").innerHTML = abcdefg.data().quote;
         })
 }
-
-read_display_Quote();
 
 // Insert name function using the global variable "currentUser"
 
@@ -50,7 +38,6 @@ function insertName() {
     })
 }
 
-insertName();
 
 
 function getBookmarks(user) {
@@ -70,9 +57,8 @@ function getBookmarks(user) {
                     var userID = doc.yourcode; //gets the length field
                     var youruserId = doc.mycode; //gets the length field
                     let newCard = CardTemplate.content.cloneNode(true);
-                    newCard.querySelector('.card-title').innerHTML = room_number;
-                    newCard.querySelector('.Counterpart').innerHTML = "Member 1 : " + youruserId;
-                    newCard.querySelector('.userID').innerHTML = "Member 2 : " + userID;
+                    newCard.querySelector('.Counterpart').innerHTML = "Chat with " + youruserId;
+                    // newCard.querySelector('.userID').innerHTML = "Member 2 : " + userID;
                     newCard.querySelector('.link-primary').id = room_number
                     newCard.querySelector('a').onclick = () => getroomnb(room_number);
 
@@ -89,7 +75,7 @@ function getBookmarks(user) {
 }
 
 
-function make_room() {
+function make_room_phase_1_get_counterpart() {
     ID = document.getElementById("make_chat_input").value;
     db.collection("users").where("name", "==", ID)
         .get()
@@ -97,9 +83,13 @@ function make_room() {
             Hikes = queryHike.docs;
             var thisHike = Hikes[0].data();
             youruserId = thisHike.userID;
-            document.getElementById("counter").innerHTML = `<h1 id="title">제목${youruserId}</h1>`;
         })
-    db.collection("users")
+        .then(() => {
+            make_room_phase_2_save_room_info_onthefirebase()   
+        })
+    }
+
+function make_room_phase_2_save_room_info_onthefirebase(){
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
@@ -109,10 +99,9 @@ function make_room() {
                 .then(userDoc => {
                     var userEmail = userDoc.data().email;
                     var mycode = userDoc.data().name;
-                    var room_number = db.collection("eachRooms").doc().id
-
+                    var room_number_create = db.collection("eachRooms").doc().id
                     db.collection("eachRooms").add({
-                            room_number: room_number,
+                            room_number: room_number_create,
                             members: firebase.firestore.FieldValue.arrayUnion(userID, youruserId),
                             mycode: mycode,
                             yourcode: ID,
@@ -121,16 +110,16 @@ function make_room() {
                             userEmail: userEmail,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }).then(() => {
-                            saveroomnumber_my(room_number)
-                            saveroomnumber_count(room_number)
+                            saveroomnumber_my(room_number_create)
+                            saveroomnumber_count(room_number_create)
                         })
                         .then(() => {
+                            getroomnb(room_number_create)
                             console.log("여기까지는 옴")
-                            window.location.href = "../chat-changwhi/public/index.html"; //new line added
+                            window.location.href = "../chat-changwhi/public/index.html"; 
                         })
                 })
-        } else {
-        }
+        } else {}
     });
 }
 
