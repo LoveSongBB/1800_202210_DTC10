@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Chat | ChitChat</title>
+    <title>Profile | ChitChat</title>
 
     <!------------------------>
     <!-- Required meta tags -->
@@ -37,7 +36,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-------------------------------------------->
     <!-- Other libraries and styles of our own -->
@@ -59,144 +58,54 @@
 
 <nav id="navbarPlaceholderLogged" aria-label="navbar"></nav>
 <main class="container body-padding-top">
-<form method="post">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="profile-img">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                     alt=""/>
-                <div class="file btn btn-lg btn-primary">
-                    Change Photo
-                    <input type="file" name="file"/>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="profile-head">
-                <h5>
-                    <span id="name-profile"></span>
-
-                </h5>
-                <h6>
-                    Web Developer and Designer
-                </h6>
-                <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                           role="tab" aria-controls="home" aria-selected="true">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                           role="tab" aria-controls="profile" aria-selected="false">Interests</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-light me-2"><a href="../html/edit-profile.html">Edit Profile></a>
             </button>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-work">
-                    <p>Social Links</p>
-                    <a href="">lorem</a><br/>
-                    <a href="">lorem</a><br/>
-                    <a href="">lorem</a>
-                    <!--                            <p>SKILLS</p>-->
-                    <!--                            <a href="">lorem</a><br/>-->
-                    <!--                            <a href="">lorem</a><br/>-->
-                    <!--                            <a href="">lorem</a><br/>-->
-                    <!--                            <a href="">lorem</a><br/>-->
-                    <!--                            <a href="">lorem</a><br/>-->
-                </div>
+        <div class="col-md-6">
+            <div class="profile-head">
+                <h1>
+                    <span id="name-profile"></span>
+
+                </h1>
+
+<div class="container-fluid bg-light text-dark p-5">
+        <div class="container py-3">
+
+            <img id="logo-img" src="../images/profile-man.jpg" width='150' height='225' />
+            <input type="file" id="mypic-input" accept="image/*" />
+        </div>
+
+</div>
+
+
+                        <h5>About</h5>
+                <h6>
+                    <span id="bio-profile"></span>
+                </h6>
             </div>
         </div>
 
-        <div class="col-md-8">
-            <div class="tab-content profile-tab" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Username</label>
+                            <label>Preferred name</label>
                         </div>
                         <div class="col-md-6">
-                            <p>"insert username"</p>
+                            <p></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Name</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Insert Name</p>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <label>Occupation</label>
                         </div>
                         <div class="col-md-6">
-                            <p> ADD TO EDIT PROFILE BRYAN </p>
+                            <p> <span id="occ-profile"></span></p>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Ski</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Novice</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Snowboard</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Familiar</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Speed Skating</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Lorem</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Figure Skating</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Expert</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Bobsleigh</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Lorem</p>
-                        </div>
-                    </div>
-                    <div class="row"><div class="col-md-12">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Bio</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
 
-                                            </textarea>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
 </main>
     <nav id="footerPlaceholder" aria-label="footer"></nav>
 

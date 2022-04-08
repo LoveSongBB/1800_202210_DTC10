@@ -1,5 +1,10 @@
 /* Make new CSS style page for logged and non-logged pages */
 
+h1 {
+
+     color: black !important;
+}
+
 p {
 
     color: black !important;
