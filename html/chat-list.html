@@ -62,10 +62,8 @@
 <!-- our own navbar goes here -->
 <nav id="navbarPlaceholderLogged"></nav>
 
-<button id="make_chat" type="button" onclick="make_room()"> Create Chatting room </button>
+<button id="make_chat" type="button" onclick="make_room_phase_1_get_counterpart()"> Create Chatting room </button>
 <input id="make_chat_input" style="margin-top: 10px;" type="text" placeholder="Type user name">
-
-<div id="counter">Your part is .. </div>
 
 <div class="container">
     <h1>Chat List</h1>
@@ -81,13 +79,8 @@
 <!-- Templates for general use, not displayed -->
 <template id="CardTemplate">
     <div class="card">
-        <img class="img">
         <div class="card-body">
-            <h5 class="card-title" hidden>Card title</h5>
-            <h5 class="card-title">Secret Korean Drama Chat Room</h5>
-
             <p class="Counterpart">My name</p>
-            <p class="userID">Your name</p>
             <a id="" href="../chat-changwhi/public/index.html" style="color: azure;"  class="link-primary btn btn-primary card-href" onclick="passroomnumber(this.id)"> Go to Chat room </a>
         </div>
     </div>

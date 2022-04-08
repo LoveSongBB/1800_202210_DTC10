@@ -13,119 +13,113 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 'use strict';
- var test1 = localStorage.getItem('roomnumber');
- var test = String(test1)
-alert(test)
-
-alert("index.js for chat called11")
-
+'use strict';
+var test1 = localStorage.getItem('roomnumber');
+var test = String(test1)
 
 console.log("RoomNumber =" + test)
- 
- import { initializeApp } from 'firebase/app';
- import {
-   getAuth,
-   onAuthStateChanged,
-   GoogleAuthProvider,
-   signInWithPopup,
-   signOut,
- } from 'firebase/auth';
- import {
-   getFirestore,
-   collection,
-   addDoc,
-   query,
-   orderBy,
-   limit,
-   onSnapshot,
-   setDoc,
-   updateDoc,
-   doc,
-   serverTimestamp,
- } from 'firebase/firestore';
- import {
-   getStorage,
-   ref,
-   uploadBytesResumable,
-   getDownloadURL,
- } from 'firebase/storage';
- import { getMessaging, getToken, onMessage } from 'firebase/messaging';
- import { getPerformance } from 'firebase/performance';
- 
- import { getFirebaseConfig } from './firebase-config.js';
- 
- // changwhi add test sub collection
- // end chan
- 
- 
- 
- 
- // Signs-in Friendly Chat.
- async function signIn() {
-   alert('TODO: Implement Google Sign-In');
-   // Sign in Firebase using popup auth and Google as the identity provider.
-   // Sign in Firebase using popup auth and Google as the identity provider.
-   var provider = new GoogleAuthProvider();
-   await signInWithPopup(getAuth(), provider);
- 
-   
- }
- 
- 
- // Signs-out of Friendly Chat.
- function signOutUser() {
-   // Sign out of Firebase.
-   signOut(getAuth());}
- 
- // Initiate firebase auth
- function initFirebaseAuth() {
-   onAuthStateChanged(getAuth(), authStateObserver);}
- 
- // Returns the signed-in user's profile Pic URL.
- function getProfilePicUrl() {
-   return getAuth().currentUser.photoURL || '/images/profile_placeholder.png';
- }
- 
- // Returns the signed-in user's display name.
- function getUserName() {
-   return getAuth().currentUser.displayName;
- }
- 
- // Returns true if a user is signed-in.
- function isUserSignedIn() {
-   return !!getAuth().currentUser;
- }
+import {
+  initializeApp
+} from 'firebase/app';
+import {
+  getAuth,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth';
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  limit,
+  onSnapshot,
+  setDoc,
+  updateDoc,
+  doc,
+  serverTimestamp,
+} from 'firebase/firestore';
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from 'firebase/storage';
+import {
+  getMessaging,
+  getToken,
+  onMessage
+} from 'firebase/messaging';
+import {
+  getFirebaseConfig
+} from './firebase-config.js';
 
- // Saves a new message on the Cloud Firestore.
- async function saveMessage(messageText,test) {
+// Signs-in Friendly Chat.
+async function signIn() {
+  alert('TODO: Implement Google Sign-In');
+  // Sign in Firebase using popup auth and Google as the identity provider.
+  // Sign in Firebase using popup auth and Google as the identity provider.
+  var provider = new GoogleAuthProvider();
+  await signInWithPopup(getAuth(), provider);
+}
+
+// Signs-out of Friendly Chat.
+function signOutUser() {
+  // Sign out of Firebase.
+  signOut(getAuth());
+}
+
+// Initiate firebase auth
+function initFirebaseAuth() {
+  onAuthStateChanged(getAuth(), authStateObserver);
+}
+
+// Returns the signed-in user's profile Pic URL.
+function getProfilePicUrl() {
+  return getAuth().currentUser.photoURL || '/images/profile_placeholder.png';
+}
+
+// Returns the signed-in user's display name.
+function getUserName() {
+  return getAuth().currentUser.displayName;
+}
+
+// Returns true if a user is signed-in.
+function isUserSignedIn() {
+  return !!getAuth().currentUser;
+}
+
+// Saves a new message on the Cloud Firestore.
+async function saveMessage(messageText, test) {
   // Add a new message entry to the Firebase database.
   try {
-   await addDoc(collection(getFirestore(), 'chat', test, 'room'), {
-     name: getUserName(),
-     text: messageText,
-     profilePicUrl: getProfilePicUrl(),
-     timestamp: serverTimestamp()
-   });
- }
- catch(error) {
-   console.error('Error writing new message to Firebase Database', error);
- }}
- 
- // Loads chat messages history and listens for upcoming ones.
- function loadMessages() {
+    await addDoc(collection(getFirestore(), 'chat', test, 'room'), {
+      name: getUserName(),
+      text: messageText,
+      profilePicUrl: getProfilePicUrl(),
+      timestamp: serverTimestamp()
+    });
+  } catch (error) {
+    console.error('Error writing new message to Firebase Database', error);
+  }
+}
+
+// Loads chat messages history and listens for upcoming ones.
+function loadMessages() {
   // Create the query to load the last 12 messages and listen for new ones.
   const recentMessagesQuery = query(collection(getFirestore(), 'chat', test, 'room'), orderBy('timestamp', 'desc'), limit(12));
-   
+
   // Start listening to the query.
-  onSnapshot(recentMessagesQuery, function(snapshot) {
-    snapshot.docChanges().forEach(function(change) {
+  onSnapshot(recentMessagesQuery, function (snapshot) {
+    snapshot.docChanges().forEach(function (change) {
       if (change.type === 'removed') {
         deleteMessage(change.doc.id);
       } else {
         var message = change.doc.data();
         displayMessage(change.doc.id, message.timestamp, message.name,
-                      message.text, message.profilePicUrl, message.imageUrl);
+          message.text, message.profilePicUrl, message.imageUrl);
       }
     });
   });
@@ -251,7 +245,7 @@ console.log("RoomNumber =" + test)
      // Show user's profile and sign-out button.
      userNameElement.removeAttribute('hidden');
      userPicElement.removeAttribute('hidden');
-//     signOutButtonElement.removeAttribute('hidden');
+     signOutButtonElement.removeAttribute('hidden');
  
      // Hide sign-in button.
      signInButtonElement.setAttribute('hidden', 'true');
@@ -263,7 +257,7 @@ console.log("RoomNumber =" + test)
      // Hide user's profile and sign-out button.
      userNameElement.setAttribute('hidden', 'true');
      userPicElement.setAttribute('hidden', 'true');
-//     signOutButtonElement.setAttribute('hidden', 'true');
+     signOutButtonElement.setAttribute('hidden', 'true');
  
      // Show sign-in button.
      signInButtonElement.removeAttribute('hidden');
@@ -417,14 +411,14 @@ console.log("RoomNumber =" + test)
  var mediaCaptureElement = document.getElementById('mediaCapture');
  var userPicElement = document.getElementById('user-pic');
  var userNameElement = document.getElementById('user-name');
-// var signInButtonElement = document.getElementById('sign-in');
-// var signOutButtonElement = document.getElementById('sign-out');
+ var signInButtonElement = document.getElementById('sign-in');
+ var signOutButtonElement = document.getElementById('sign-out');
  var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
  // Saves message on form submit.
  messageFormElement.addEventListener('submit', onMessageFormSubmit);
-// signOutButtonElement.addEventListener('click', signOutUser);
-// signInButtonElement.addEventListener('click', signIn);
+ signOutButtonElement.addEventListener('click', signOutUser);
+ signInButtonElement.addEventListener('click', signIn);
  
  // Toggle for the button.
  messageInputElement.addEventListener('keyup', toggleButton);

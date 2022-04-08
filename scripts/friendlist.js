@@ -48,6 +48,7 @@ function populateCardsDynamically() {
                 var hikeID = user.data().userID; //gets the unique ID field
                 let testHikeCard = hikeCardTemplate.content.cloneNode(true);
                 testHikeCard.querySelector('.card-title').innerHTML = hikeName;
+                testHikeCard.querySelector('#profile-button').value = user.id;
 
                 testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
                 testHikeCard.querySelector('#start_chat_function').id = hikeName
@@ -149,3 +150,15 @@ populateCardsDynamically();
 function setHikeData(id){
     localStorage.setItem ('hikeID', id);
 }
+
+function clickProfileButtonOnCard() {
+    let clickedCardUserId = $(this).val();
+    localStorage.setItem('goToUserIdProfile', clickedCardUserId)
+    window.location.href = "/html/user-matched-profile.html";
+}
+
+function setup() {
+    $("body").on('click', '#profile-button', clickProfileButtonOnCard);
+}
+
+$(document).ready(setup);
