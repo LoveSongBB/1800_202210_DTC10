@@ -1,4 +1,4 @@
-## My Web Application (Add your Title here)
+## ChitChat - (add snappy text)
 
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -6,7 +6,10 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Bryan. I'm excited about this project because it's fun!	
+* Hello my name is Bryan Tran. I'm thrilled about this project because I can experience the development process web development. 
+Getting hands-on experience of FireStore Database and using Jquery to manipulate information is essential information. 
+
+
 * Hi my name is Evon. I'm excited about this project because ...
 * Hi my name is Changwhi Oh. I'm excited about this project because ... 	
 ## Technologies
@@ -14,7 +17,10 @@ Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
+* Firestore Database
+* Trello
+* Figma
+* Discord
 	
 ## Content
 Content of the project folder:
@@ -23,7 +29,8 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── README.md
+└── login.html               # login/signup HTML file, this is where users login or signup for our app.
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
