@@ -16,6 +16,10 @@
  'use strict';
  var test1 = localStorage.getItem('roomnumber');
  var test = String(test1)
+alert(test)
+
+alert("index.js for chat called11")
+
 
 console.log("RoomNumber =" + test)
  

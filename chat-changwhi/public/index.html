@@ -105,120 +105,73 @@
 
 <body>
 <!--<nav id="navbarPlaceholderLogged"></nav>-->
-
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <!-- Navbar -->
-    <header class="p-3 header-color text-white">
-        <nav class="navbar navbar-expand-lg header-color" aria-label="navbar">
-            <a href="./main/main.html">
-                <img alt="logo" height="45" id="logo-img" src="./images/icon-size-logo-modified.png">
-            </a>
-            <a href="../friendlist/friendlist.html">
-                <span class="iconify navbar-link" data-height="40" data-icon="heroicons-outline:user-group" data-width="40"></span>
-            </a>
-            <a href="../profile/profile.html">
-                <span class="iconify navbar-link" data-height="40" data-icon="iconoir:profile-circled" data-width="40"></span>
-            </a>
-            <a href="../chat-changwhi-chatlist/chat-list.html">
-                <span class="iconify navbar-link" data-height="40" data-icon="bi:chat-left-text" data-width="40"></span>
-            </a>
-<!--                    <a href="../chat-changwhi/public/index.html">
-                        <span class="iconify navbar-link" data-icon="bi:chat-left-text" data-width="40" data-height="40"></span>
-                    </a>-->
 
-            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                    data-bs-target="#navbarTogglerDemo02" data-bs-toggle="collapse" type="button">
-                <span class="iconify navbar-link" data-height="40" data-icon="charm:menu-hamburger" data-width="40"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a aria-current="page" class="nav-link active" href="../search/search.html">Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign out</a> <!-- ADD SIGN OUT FUNCTION -->
-                    </li>
-                    <li class="nav-item">
-                        <a aria-disabled="true" class="nav-link disabled" href="#" tabindex="-1">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <!-- Header section containing logo -->
+    <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+      <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+        <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+          <h3><i class="material-icons">chat_bubble_outline</i> Demo</h3>
+        </div>
+        <div id="user-container">
+          <div hidden id="user-pic"></div>
+          <div hidden id="user-name"></div>
+          <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+            Sign-out
+          </button>
+          <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+            <i class="material-icons">account_circle</i>Sign-in with Google
+          </button>
+        </div>
+      </div>
     </header>
-
-
-    <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <!-- <h3><i class="material-icons">chat_bubble_outline</i> ChitChat</h3> -->
-            <a id="" href="./" style="color: azure;"  class="link-primary btn btn-primary card-href">Exit</a>
-            <p style="margin-left: 30px;" class="Counterpart">My name</p>
-
-
-    </div>
-    
-
-<!--     Header section containing logo
-        <header class="">
-          <div class="mdl-cell mdl-cell&#45;&#45;12-col mdl-cell&#45;&#45;12-col-tablet mdl-grid">
-
-            <div id="user-container">
-              <div hidden id="user-pic"></div>
-              <div hidden id="user-name"></div>
-            </div>
-          </div>
-        </header>-->
-
+  
     <main class="mdl-layout__content mdl-color--grey-100">
+      <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
 
-        <!-- Exit button above the chatting area -->
-        <!-- <div class="mdl-cell mdl-cell--12-col mdl-grid">
-            <a id="" href="./" style="color: azure;"  class="link-primary btn btn-primary card-href">Exit</a>
-        </div> -->
-
-        <div class="mdl-cell mdl-cell--12-col mdl-grid" id="messages-card-container">
-
-            <!-- Messages container -->
-            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop"
-                 id="messages-card">
-                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                    <div id="messages">
-                    </div>
-                    <form action="#" id="message-form">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input autocomplete="off" class="mdl-textfield__input" id="message" type="text">
-                            <label class="mdl-textfield__label" for="message">Message...</label>
-                        </div>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" disabled id="submit"
-                                type="submit">
-                            Send
-                        </button>
-                    </form>
-                    <form action="#" id="image-form">
-                        <input accept="image/*" capture="camera" id="mediaCapture" type="file">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white" id="submitImage"
-                                title="Add an image">
-                            <i class="material-icons">image</i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="mdl-js-snackbar mdl-snackbar" id="must-signin-snackbar">
-                <div class="mdl-snackbar__text"></div>
-                <button class="mdl-snackbar__action" type="button"></button>
-            </div>
+                <!-- Exit button above the chatting area -->
+        <div class="mdl-cell mdl-cell--12-col mdl-grid">
+            <a id="" href="/html/chat-list.html" style="color: azure;"  class="link-primary btn btn-primary card-href">Exit</a>
 
         </div>
 
-        <!-- chatroom number from chat list -->
-
+        <!-- Messages container -->
+        <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+            <div id="messages">
+            </div>
+            <form id="message-form" action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="message" autocomplete="off">
+                <label class="mdl-textfield__label" for="message">Message...</label>
+              </div>
+              <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Send
+              </button>
+            </form>
+            <form id="image-form" action="#">
+              <input id="mediaCapture" type="file" accept="image/*" capture="camera">
+              <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
+                <i class="material-icons">image</i>
+              </button>
+            </form>
+          </div>
+        </div>
+  
+        <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+  
+      </div>
     </main>
-</div>
+  </div>
+
 <nav id="footerPlaceholder" aria-label="footer"></nav>
 
 <!-- This script is created by webpack -->
-<script src="../chat-changwhi-chatlist/main.js"></script>
-<script src="../scripts/skeleton.js"></script>
+<script src="../public/scripts/main.js"> </script>
+<script src="../public/scripts/skeleton.js"> </script>
 
 </body>
 
