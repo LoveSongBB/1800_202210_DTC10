@@ -49,7 +49,6 @@ function populateCardsDynamically() {
                 testHikeCard.querySelector('.card-title').innerHTML = hikeName;
                 testHikeCard.querySelector('#profile-button').value = user.id;
 
-                testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
                 testHikeCard.querySelector('#start_chat_function').id = hikeName
                 // testHikeCard.querySelector('#start_chat_function').onclick = make_room_friendslist(this);
 
@@ -106,7 +105,7 @@ function make_room_friendslist(src) {
                     .then(() => {
                         window.location.href = "../chat-changwhi/public/index.html"; //new line added
                     })
-
+                    
                 })
     });
 }
