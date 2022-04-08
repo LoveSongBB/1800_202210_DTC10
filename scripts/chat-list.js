@@ -155,7 +155,3 @@ function getroomnb(id, name) {
     localStorage.setItem('name', name);
 
 }
-
-
-
-

@@ -1,4 +1,3 @@
-// changwhi's global var for chat
 var currentUser_chat;
 var ID_friendslist = null;
 var youruserIdfrinedslist;
@@ -48,8 +47,8 @@ function populateCardsDynamically() {
                 var hikeID = user.data().userID; //gets the unique ID field
                 let testHikeCard = hikeCardTemplate.content.cloneNode(true);
                 testHikeCard.querySelector('.card-title').innerHTML = hikeName;
-                // testHikeCard.querySelector('#profile-button').value = user.id;
-                testHikeCard.querySelector('.read-more').href = "../html/user-matched-profile.html?userName="+ hikeName +"&id=" + hikeID;
+                testHikeCard.querySelector('#profile-button').value = user.id;
+
                 testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
                 testHikeCard.querySelector('#start_chat_function').id = hikeName
                 // testHikeCard.querySelector('#start_chat_function').onclick = make_room_friendslist(this);
@@ -67,6 +66,7 @@ function populateCardsDynamically() {
 function make_room_friendslist(src) {
     // 추후 저장할수 있게 도와주는 자료
     var counterpartid = src.id
+    alert("counterpartid")
     // var ID_friendslist = document.getElementById("send_name_to_chat").innerHTML;
     db.collection("users").where("name", "==", counterpartid)
         .get()

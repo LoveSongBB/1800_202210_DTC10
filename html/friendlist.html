@@ -69,30 +69,29 @@
 <nav id="navbarPlaceholderLogged" aria-label="navbar"></nav>
 <main class="container body-padding-top">
 
-<template id="hikeCardTemplate">
-    <div class="card">
-        <img class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">placeholder</h5>
-            <br>
-            <a  id="start_chat_function" style="color: azure;"  class="link-primary btn card-href send chat-button"
-                onclick="make_room_friendslist(this)">Chat</a>
-            <!-- <button type="button" class="btn btn-primary" id="profile-button">Profile</button> -->
-            <a class="btn btn-primary read-more" style="float: right">Profile</a>
-            <div id="send_name_to_chat"></div>
-        </div>
-    </div>
-</template>
 
-<div class="container">
-    <h1 id="friendlist-title">Friend List</h1>
-    <!-- Here is container for cards  -->
+
+    <template id="hikeCardTemplate">
+        <div class="card">
+            <img class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">placeholder</h5>
+                <br>
+                <a  id="start_chat_function" style="color: azure;"  class="link-primary btn btn-primary card-href send" onclick="make_room_friendslist(this)">Chat</a>
+                <button type="button" class="btn btn-primary" id="profile-button">Profile</button>
+                <div id="send_name_to_chat"></div>
+            </div>
+        </div>
+    </template>
+    
     <div class="container">
-        <div id="hikeCardGroup" class="row row-cols-auto">
+        <h1>Friend List</h1>
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="hikeCardGroup" class="row row-cols-auto">
+            </div>
         </div>
     </div>
-</div>
-</main>
 <!--footer-->
 <nav id="footerPlaceholder"  aria-label="footer"></nav>
 
