@@ -2,3 +2,8 @@
 #question-body {
      padding-bottom: 65px !important;
 }
+
+.padding-zero {
+
+    padding: 0 !important;
+}
