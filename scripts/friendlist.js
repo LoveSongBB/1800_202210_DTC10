@@ -49,6 +49,7 @@ function populateCardsDynamically() {
                 testHikeCard.querySelector('.card-title').innerHTML = hikeName;
                 testHikeCard.querySelector('#profile-button').value = user.id;
 
+                testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);
                 testHikeCard.querySelector('#start_chat_function').id = hikeName
                 // testHikeCard.querySelector('#start_chat_function').onclick = make_room_friendslist(this);
 
