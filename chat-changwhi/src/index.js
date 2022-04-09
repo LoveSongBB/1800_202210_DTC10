@@ -48,52 +48,47 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from 'firebase/storage';
-import {
-  getMessaging,
-  getToken,
-  onMessage
-} from 'firebase/messaging';
+
 import {
   getFirebaseConfig
 } from './firebase-config.js';
 
-// Signs-in Friendly Chat.
+// Signs-in - read
 async function signIn() {
-  alert('TODO: Implement Google Sign-In');
   // Sign in Firebase using popup auth and Google as the identity provider.
   // Sign in Firebase using popup auth and Google as the identity provider.
   var provider = new GoogleAuthProvider();
   await signInWithPopup(getAuth(), provider);
 }
 
-// Signs-out of Friendly Chat.
+// Signs-out - read
 function signOutUser() {
   // Sign out of Firebase.
   signOut(getAuth());
 }
 
 
-// Initiate firebase auth
+// Initiate firebase auth - read
 function initFirebaseAuth() {
   onAuthStateChanged(getAuth(), authStateObserver);
 }
 
-// Returns the signed-in user's profile Pic URL.
+// Returns the signed-in user's profile Pic URL. read
 function getProfilePicUrl() {
   return getAuth().currentUser.photoURL || '/images/profile_placeholder.png';
 }
 
-// Returns the signed-in user's display name.
+// Returns the signed-in user's display name. -read
 function getUserName() {
   return getAuth().currentUser.displayName;
 }
 
-// Returns true if a user is signed-in.
+// Returns true if a user is signed-in.-read
 function isUserSignedIn() {
   return !!getAuth().currentUser;
 }
 
-// Saves a new message on the Cloud Firestore.
+// Saves a new message on the Cloud Firestore. read and write
 async function saveMessage(messageText, test) {
   // Add a new message entry to the Firebase database.
   try {
@@ -108,12 +103,10 @@ async function saveMessage(messageText, test) {
   }
 }
 
-// Loads chat messages history and listens for upcoming ones.
+// Loads chat messages history and listens for upcoming ones. - read
 function loadMessages() {
   // Create the query to load the last 12 messages and listen for new ones.
   const recentMessagesQuery = query(collection(getFirestore(), 'chat', test, 'room'), orderBy('timestamp', 'desc'), limit(12));
-
-  // Start listening to the query.
   onSnapshot(recentMessagesQuery, function (snapshot) {
     snapshot.docChanges().forEach(function (change) {
       if (change.type === 'removed') {
@@ -273,23 +266,22 @@ function addSizeToGoogleProfilePic(url) {
 // A loading image URL.
 var LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif?a';
 
-// Delete a Message from the UI.
-function deleteMessage(id) {
-  var div = document.getElementById(id);
-  // If an element for that message exists we delete it.
-  if (div) {
-    div.parentNode.removeChild(div);
-  }
-}
+// // Delete a Message from the UI. - 
+// function deleteMessage(id) {
+//   var div = document.getElementById(id);
+//   // If an element for that message exists we delete it.
+//   if (div) {
+//     div.parentNode.removeChild(div);
+//   }
+// }
 
-function createAndInsertMessage(id, timestamp) {
+function createAndInsertMessage(id, timestamp) { // read data
   const container = document.createElement('div');
   container.innerHTML = MESSAGE_TEMPLATE;
   const div = container.firstChild;
   div.setAttribute('id', id);
 
   // If timestamp is null, assume we've gotten a brand new message.
-  // https://stackoverflow.com/a/47781432/4816918
   timestamp = timestamp ? timestamp.toMillis() : Date.now();
   div.setAttribute('timestamp', timestamp);
 
@@ -320,7 +312,7 @@ function createAndInsertMessage(id, timestamp) {
   return div;
 }
 
-// Displays a Message in the UI.
+// Displays a Message in the UI. query, read, write
 function displayMessage(id, timestamp, name, text, picUrl, imageUrl) {
   var div =
     document.getElementById(id) || createAndInsertMessage(id, timestamp);
@@ -349,7 +341,7 @@ function displayMessage(id, timestamp, name, text, picUrl, imageUrl) {
     messageElement.innerHTML = '';
     messageElement.appendChild(image);
   }
-  // Show the card fading-in and scroll to view the new message.
+  // Show the card fading-in and scroll to view the new message. read data
   setTimeout(function () {
     div.classList.add('visible');
   }, 1);
@@ -357,8 +349,8 @@ function displayMessage(id, timestamp, name, text, picUrl, imageUrl) {
   messageInputElement.focus();
 }
 
-// Enables or disables the submit button depending on the values of the input
-// fields.
+// Enables or disables the submit button depending on the values of the input 
+// fields. - write
 function toggleButton() {
   if (messageInputElement.value) {
     submitButtonElement.removeAttribute('disabled');
