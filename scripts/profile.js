@@ -42,7 +42,6 @@ function insertName() {
                 document.getElementById("bio-profile").innerHTML = bio_Text;
                 document.getElementById("occ-profile").innerHTML = userOcc;
 
-                // $("#name-main").text(user_Name);
             })
             console.log(user.uid); // give id who user who logged in
         }

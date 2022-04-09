@@ -5,8 +5,7 @@ firebase.auth().onAuthStateChanged(user => {
 //        console.log(currentUser);
 
         // the following functions are always called when someone is logged in
-//        populateCardsDynamically();
-//        displaySearchValue();
+
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -18,7 +17,7 @@ firebase.auth().onAuthStateChanged(user => {
 function displaySearchValue(){
     let userCardTemplate = document.getElementById("hikeCardTemplate");
     let userCardGroup = document.getElementById("hikeCardGroup");
-//    console.log(document.getElementById("mySearch"));
+
     var x = document.getElementById("mySearch").value;
 
 

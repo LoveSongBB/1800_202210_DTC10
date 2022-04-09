@@ -135,12 +135,12 @@ function matchUser() {
                 var userIdToDisplay = `userID: ${userId}`
                 var hikeID = user.data().userID;
 
-                // console.log(userName);
+
 
                 testUserMatchesCard.querySelector('.card-title').innerHTML = userName;
-//              testUserMatchesCard.querySelector('#bio-card').value = userBio;
+
                 testUserMatchesCard.querySelector('.bio-card').innerHTML = userBio;
-//                testUserMatchesCard.querySelector('#profile-button').value = userId;
+
                 testUserMatchesCard.querySelector('#add-friend-button').value = userId;
                 testUserMatchesCard.querySelector('a').onclick = () => setUser(userID);
                 testUserMatchesCard.querySelector('.read-more').href = "../html/user-matched-profile.html?userName="+userName +"&id=" + hikeID;
@@ -163,7 +163,7 @@ function clickAddFriendButtonOnCard() {
 
     db.collection('users').get().then(querySnapshot => {
         querySnapshot.forEach(user => {
-            // console.log(`userId = ${user.id}, clickedCardUserId = ${clickedCardUserId}`);
+            
             if (user.id == clickedCardUserId) {
                 currentUser.set({
                     friendlist: firebase.firestore.FieldValue.arrayUnion(clickedCardUserId)
@@ -175,7 +175,6 @@ function clickAddFriendButtonOnCard() {
         })
     })
 
-    // window.location.href = "/html/friendlist.html"
 }
 
 function setup() {

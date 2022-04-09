@@ -1,27 +1,3 @@
-//function populateDataFields() {
-//    // Loop through all users in the users collection.
-//    db.collection('users').get().then(querySnapshot => {
-//        querySnapshot.forEach(user => {
-//            // UserIdToLoad is the user Id that you want to view.
-//            userIdToLoad = localStorage.getItem('goToUserIdProfile');
-//
-//            if (user.id == userIdToLoad) {
-//                console.log(userIdToLoad);
-//                $('#paragraph-user-id').html(userIdToLoad);
-//                $('#h2-name').html(user.data().name);
-//                console.log(user.data().name)
-//            }
-//        })
-//    })
-//}
-//
-//function setup() {
-//    populateDataFields();
-//}
-//
-//$(document).ready(setup);
-
-
 
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
@@ -43,7 +19,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 function showDetails() {
     // create a URL object
-//    let testtest = document.getElementById("test");
+
     let params = new URL(window.location.href);
     console.log(params)
     let id = params.searchParams.get("id");
@@ -56,17 +32,14 @@ function showDetails() {
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-//            let testCard = testtest.content.cloneNode(true);
-            // doc.data() is never undefined for query doc snapshots
+
                 var hikeID = doc.data().userID;
                 console.log(doc.id, " => ", doc.data());
                 var biog = doc.data().bio;
                 var userName = doc.data().name;
                 document.getElementById("bio-div").innerHTML = biog;
                  document.getElementById("HikeName").innerHTML = userName;
-//                testCard.querySelector('i').id = 'save-' + hikeID;
-//                // this line will call a function to save the hikes to the user's document
-//                testCard.querySelector('i').onclick = () => saveBookmark(hikeID);
+
 
         });
     })
@@ -88,7 +61,6 @@ function saveBookmark(hikeID) {
         .then(function () {
             console.log("Add a friend: " + currentUser);
             var iconID = 'save-' + hikeID;
-            //console.log(iconID);
             document.getElementById(iconID).innerText = 'bookmark';
         });
 }
