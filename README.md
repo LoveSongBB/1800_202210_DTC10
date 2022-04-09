@@ -10,8 +10,10 @@ This browser based web application to ...
 Getting hands-on experience of FireStore Database and using Jquery to manipulate information is essential information. 
 
 
-* Hi my name is Evon. I'm excited about this project because ...
-* Hi my name is Changwhi Oh. I'm excited about this project because ... 	
+* Hi my name is Evon. I'm excited about this project because I get to experience coding a project with a team for the first time. I have always been curious on what it is like and I am grateful for the opportunity to experience this.
+
+* Hi my name is Changwhi Oh. I'm excited about this project because I was very excited to have the xperience of making a product from planning for the first time. Especially, the process of actually implementing the features we wanted was so much fun.
+ 	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
